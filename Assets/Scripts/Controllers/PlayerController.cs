@@ -6,18 +6,17 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] public float PlayerSpeed = 5.0f;
 
-    [SerializeField] public Sprite SpriteNorth;
-
-    private SpriteRenderer sprite;
+    private Animator animator;
 
     private void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         Movement();
+
     }
 
     private void Movement()
@@ -27,5 +26,10 @@ public class PlayerController : MonoBehaviour
 
         //apply movement
         transform.Translate(velocity * Time.deltaTime);
+
+        //apply animation
+        animator.SetFloat("Speed", velocity.magnitude / PlayerSpeed);
+        animator.SetFloat("HorizontalDirection", Input.GetAxisRaw("Horizontal"));
+        animator.SetFloat("VerticalDirection", Input.GetAxisRaw("Vertical"));
     }
 }
