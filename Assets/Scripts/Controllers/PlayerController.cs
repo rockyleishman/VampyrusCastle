@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : DestructableObject
 {
+    [Header("Player Attributes")]
     [SerializeField] public float PlayerSpeed = 5.0f;
 
     private Animator animator;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         Movement();
-
     }
 
     private void Movement()
@@ -31,5 +33,11 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", velocity.magnitude / PlayerSpeed);
         animator.SetFloat("HorizontalDirection", Input.GetAxisRaw("Horizontal"));
         animator.SetFloat("VerticalDirection", Input.GetAxisRaw("Vertical"));
+    }
+
+    protected override void Destroy()
+    {
+        //TODO
+        Debug.Log("Player Dead");
     }
 }
