@@ -8,10 +8,12 @@ public class AIController : DestructableObject
     [SerializeField] public float EnemySpeed = 4.0f;
     [SerializeField] public float CollisionDamage = 5.0f;
     [SerializeField] public float CollisionCooldown = 1f;
+    [SerializeField] public float CollisionKnockbackDistance = 2.0f;
+    [SerializeField] public float CollisionKnockbackVelocity = 20.0f;
     private float _collisionCooldownTimer;
     private bool _isCollisionReady;
 
-    protected void Start()
+    protected override void Start()
     {
         base.Start();
 
@@ -46,15 +48,15 @@ public class AIController : DestructableObject
             if (player != null)
             {
                 player.DamageHP(CollisionDamage);
+                player.Knockback((player.transform.position - transform.position).normalized * CollisionKnockbackDistance, CollisionKnockbackDistance / CollisionKnockbackVelocity);
                 player.ActivateIFrames();
                 _collisionCooldownTimer = CollisionCooldown;
             }
         }
     }
 
-    protected override void Destroy()
+    protected override void DestroyObject()
     {
-        //TODO
-        Debug.Log("AI Dead");
+        OnDespawn();
     }
 }
