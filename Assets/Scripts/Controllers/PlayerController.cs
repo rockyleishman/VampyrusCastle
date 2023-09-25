@@ -6,12 +6,29 @@ public class PlayerController : DestructableObject
 {
     [Header("Player Attributes")]
     [SerializeField] public float PlayerSpeed = 5.0f;
-    [SerializeField][Range(0,0.1f)] public float TimeToChangeDirection = 0.05f;
+    [SerializeField][Range(0.0f, 0.1f)] public float TimeToChangeDirection = 0.05f;
     private int _inputDirection;
     private float _inputDirectionTime;
     private int _playerDirection;
 
+    [Header("Sword Attack")]
+    [SerializeField] public PlayerMeleeAttack MeleeAttack;
+    [SerializeField] public float Damage = 5.0f;
+    [SerializeField] public float Range = 1.5f;
+    [SerializeField] public float KnockbackDistance = 2.0f;
+    [SerializeField] public float KnockbackVelocity = 20.0f;
+
     private Animator animator;
+
+    //constant structs
+    private Quaternion k_rotS = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+    private Quaternion k_rotSE = Quaternion.Euler(0.0f, 0.0f, 45.0f);
+    private Quaternion k_rotE = Quaternion.Euler(0.0f, 0.0f, 90.0f);
+    private Quaternion k_rotNE = Quaternion.Euler(0.0f, 0.0f, 135.0f);
+    private Quaternion k_rotN = Quaternion.Euler(0.0f, 0.0f, 180.0f);
+    private Quaternion k_rotNW = Quaternion.Euler(0.0f, 0.0f, 225.0f);
+    private Quaternion k_rotW = Quaternion.Euler(0.0f, 0.0f, 270.0f);
+    private Quaternion k_rotSW = Quaternion.Euler(0.0f, 0.0f, 315.0f);
 
     protected override void Start()
     {
@@ -128,12 +145,67 @@ public class PlayerController : DestructableObject
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            //TODO
-            Debug.Log("Player Attack");
+            //determine attack position and rotation
+            Vector3 position;
+            Quaternion rotation;
+            switch (_playerDirection)
+            {
+                case 1:
+                    //SW
+                    position = transform.position + ((Vector3.down + Vector3.left).normalized * Range);
+                    rotation = k_rotSW;
+                    break;
+
+                case 2:
+                    //W
+                    position = transform.position + (Vector3.left * Range);
+                    rotation = k_rotW;
+                    break;
+
+                case 3:
+                    //NW
+                    position = transform.position + ((Vector3.up + Vector3.left).normalized * Range);
+                    rotation = k_rotNW;
+                    break;
+
+                case 4:
+                    //N
+                    position = transform.position + (Vector3.up * Range);
+                    rotation = k_rotN;
+                    break;
+
+                case 5:
+                    //NE
+                    position = transform.position + ((Vector3.up + Vector3.right).normalized * Range);
+                    rotation = k_rotNE;
+                    break;
+
+                case 6:
+                    //E
+                    position = transform.position + (Vector3.right * Range);
+                    rotation = k_rotE;
+                    break;
+
+                case 7:
+                    //SE
+                    position = transform.position + ((Vector3.down + Vector3.right).normalized * Range);
+                    rotation = k_rotSE;
+                    break;
+
+                default:
+                    //S
+                    position = transform.position + (Vector3.down * Range);
+                    rotation = k_rotS;
+                    break;
+            }
+            
+            //spawn attack
+            PlayerMeleeAttack meleeAttack = (PlayerMeleeAttack)PoolManager.Instance.Spawn(MeleeAttack.name, position, rotation);
+            meleeAttack.Init(Damage, KnockbackDistance, KnockbackVelocity);
         }
     }
 
-    protected override void Destroy()
+    protected override void DestroyObject()
     {
         //TODO
         Debug.Log("Player Dead");

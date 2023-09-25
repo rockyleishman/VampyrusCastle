@@ -28,7 +28,7 @@ public class PoolManager : Singleton<PoolManager>
         }
     }
 
-    public PoolObject Spawn(string name, Vector3 worldPosition)
+    public PoolObject Spawn(string name, Vector3 worldPosition, Quaternion worldRotation)
     {
         Stack<PoolObject> poolObjectStack = _stackDictionary[name];
 
@@ -38,6 +38,7 @@ public class PoolManager : Singleton<PoolManager>
             PoolObject clone = Instantiate(poolObjectStack.Peek());
             clone.name = name;
             clone.transform.position = worldPosition;
+            clone.transform.rotation = worldRotation;
             return clone;
         }
         else
@@ -45,6 +46,7 @@ public class PoolManager : Singleton<PoolManager>
             //pop, activate, and return
             PoolObject poolObject = poolObjectStack.Pop();
             poolObject.transform.position = worldPosition;
+            poolObject.transform.rotation = worldRotation;
             poolObject.gameObject.SetActive(true);
             return poolObject;
         }

@@ -6,7 +6,10 @@ public abstract class DestructableObject : PoolObject
 {
     [Header("Health")]
     [SerializeField] public float MaxHP = 100;
-    [SerializeField] protected float _currentHP;
+    protected float _currentHP;
+    [SerializeField][Range(0.0f, 10.0f)] public float KnockbackMultiplier = 1.0f;
+    private Vector3 _knockbackRemaining;
+    private float _knockbackTimeRemaining;
     [SerializeField] public float IFramesTime = 0.5f;
     private float _iFrameTimeLeft;
 
@@ -19,6 +22,15 @@ public abstract class DestructableObject : PoolObject
     {
         //decrease i frame time left
         _iFrameTimeLeft -= Time.deltaTime;
+
+        //apply knockback
+        if (_knockbackTimeRemaining > 0.0f)
+        {
+            Vector3 knockbackThisFrame = _knockbackRemaining / _knockbackTimeRemaining * Time.deltaTime;
+            transform.Translate(knockbackThisFrame);
+            _knockbackRemaining -= knockbackThisFrame;
+            _knockbackTimeRemaining -= Time.deltaTime;
+        }
     }
 
     protected void InitHP()
@@ -36,7 +48,7 @@ public abstract class DestructableObject : PoolObject
             if (_currentHP <= 0.0f)
             {
                 _currentHP = 0.0f;
-                Destroy();
+                DestroyObject();
             }
         }
     }
@@ -51,6 +63,12 @@ public abstract class DestructableObject : PoolObject
         }
     }
 
+    public void Knockback(Vector3 knockback, float time)
+    {
+        _knockbackRemaining = knockback * KnockbackMultiplier;
+        _knockbackTimeRemaining = time;
+    }
+
     public void ActivateIFrames()
     {
         if (_iFrameTimeLeft <= 0.0f)
@@ -59,5 +77,5 @@ public abstract class DestructableObject : PoolObject
         }
     }
 
-    protected abstract void Destroy();
+    protected abstract void DestroyObject();
 }

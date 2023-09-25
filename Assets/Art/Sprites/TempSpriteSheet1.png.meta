@@ -461,6 +461,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: TempPlayerSwordAttack
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 8
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9721bbe90e226f04aacdb0381b44f0b6
+      internalID: -1748426850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempCandy
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4f07c988f737bf45888d043a2616d0d
+      internalID: 1502877656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -472,6 +514,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      TempCandy: 1502877656
       TempCrystal: 1931548783
       TempEnemy_E: -794760954
       TempEnemy_N: -1632430665
@@ -481,6 +524,7 @@ TextureImporter:
       TempEnemy_SE: 1270995051
       TempEnemy_SW: 1122393783
       TempEnemy_W: -819625331
+      TempPlayerSwordAttack: -1748426850
       TempPlayer_E: -726661706
       TempPlayer_N: 1816402862
       TempPlayer_NE: 770207232
