@@ -25,11 +25,35 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    //when the game initialized, we will create three kinds of bullets pool of tower
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*//when the game initialized, we will create three kinds of bullets pool of tower
     public GameObject bulletA;
     public GameObject bulletB;
     public GameObject bulletC;
-    public int poolSize = 20;
+    //public int poolSize = 20;
     private Stack<GameObject> objectPoolA;
     private Stack<GameObject> objectPoolB;
     private Stack<GameObject> objectPoolC;
@@ -81,5 +105,5 @@ public class GameManager : Singleton<GameManager>
     {
         pool.Push(obj);
         obj.SetActive(false);
-    }
+    }*/
 }
