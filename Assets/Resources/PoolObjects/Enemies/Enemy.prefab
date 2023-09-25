@@ -150,7 +150,8 @@ MonoBehaviour:
   MaxHP: 50
   KnockbackMultiplier: 1
   IFramesTime: 0.1
-  EnemySpeed: 4
+  MovementSpeed: 4
+  PathPointReachedRadius: 1
   CollisionDamage: 5
   CollisionCooldown: 1
   CollisionKnockbackDistance: 2
