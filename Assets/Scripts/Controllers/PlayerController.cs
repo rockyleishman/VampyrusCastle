@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : DestructableObject
 {
-    [Header("Player Attributes")]
-    [SerializeField] public float PlayerSpeed = 5.0f;
+    [Header("Movement")]
+    [SerializeField] public float MovementSpeed = 5.0f;
     [SerializeField][Range(0.0f, 0.1f)] public float TimeToChangeDirection = 0.05f;
     private int _inputDirection;
     private float _inputDirectionTime;
@@ -18,7 +18,7 @@ public class PlayerController : DestructableObject
     [SerializeField] public float KnockbackDistance = 2.0f;
     [SerializeField] public float KnockbackVelocity = 20.0f;
 
-    private Animator animator;
+    private Animator _animator;
 
     //constant structs
     private Quaternion k_rotS = Quaternion.Euler(0.0f, 0.0f, 0.0f);
@@ -38,7 +38,7 @@ public class PlayerController : DestructableObject
         _inputDirectionTime = 0.0f;
         _playerDirection = 0;
 
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     protected override void Update()
@@ -55,7 +55,7 @@ public class PlayerController : DestructableObject
         Vector2 moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0.0f).normalized;
 
         //apply movement
-        transform.Translate(moveDirection * PlayerSpeed * Time.deltaTime);
+        transform.Translate(moveDirection * MovementSpeed * Time.deltaTime);
 
         //change player direction
         int lastDirection = _playerDirection;
@@ -136,8 +136,8 @@ public class PlayerController : DestructableObject
         //apply animation
         if (lastDirection != _playerDirection)
         {
-            animator.SetInteger("PlayerDirection", _playerDirection);
-            animator.SetTrigger("ChangeDirection");
+            _animator.SetInteger("PlayerDirection", _playerDirection);
+            _animator.SetTrigger("ChangeDirection");
         }
     }
 
