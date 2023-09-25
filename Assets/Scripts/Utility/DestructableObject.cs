@@ -6,26 +6,38 @@ public abstract class DestructableObject : PoolObject
 {
     [Header("Health")]
     [SerializeField] public float MaxHP = 100;
-    protected float _currentHP;
+    [SerializeField] protected float _currentHP;
+    [SerializeField] public float IFramesTime = 0.5f;
+    private float _iFrameTimeLeft;
 
     protected virtual void Start()
     {
         InitHP();
     }
 
+    protected virtual void Update()
+    {
+        //decrease i frame time left
+        _iFrameTimeLeft -= Time.deltaTime;
+    }
+
     protected void InitHP()
     {
         _currentHP = MaxHP;
+        _iFrameTimeLeft = 0.0f;
     }
 
     public void DamageHP(float hp)
     {
-        _currentHP -= hp;
-
-        if (_currentHP < 0.0f)
+        if (_iFrameTimeLeft <= 0.0f)
         {
-            _currentHP = 0.0f;
-            Destroy();
+            _currentHP -= hp;
+
+            if (_currentHP <= 0.0f)
+            {
+                _currentHP = 0.0f;
+                Destroy();
+            }
         }
     }
 
@@ -36,6 +48,14 @@ public abstract class DestructableObject : PoolObject
         if (_currentHP > MaxHP)
         {
             _currentHP = MaxHP;
+        }
+    }
+
+    public void ActivateIFrames()
+    {
+        if (_iFrameTimeLeft <= 0.0f)
+        {
+            _iFrameTimeLeft = IFramesTime;
         }
     }
 
