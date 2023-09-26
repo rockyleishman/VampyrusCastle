@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PathManager : Singleton<PathManager>
 {
-    void Start()
+    private void Start()
     {
         DataManager.Instance.LevelDataObject.PathPoints = GetComponentsInChildren<PathPoint>();
     }
