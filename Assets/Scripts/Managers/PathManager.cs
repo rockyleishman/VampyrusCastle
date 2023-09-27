@@ -6,6 +6,23 @@ public class PathManager : Singleton<PathManager>
 {
     private void Start()
     {
+        //disable rendering
+        GetComponent<Renderer>().renderingLayerMask = 0;
+
+        //load all path points into level data
         DataManager.Instance.LevelDataObject.PathPoints = GetComponentsInChildren<PathPoint>();
+
+        //init flow points
+        StartCoroutine(InitFlowPointsCoroutine());
+    }
+
+    private IEnumerator InitFlowPointsCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        foreach (FlowPoint flowPoint in DataManager.Instance.LevelDataObject.PathPoints)
+        {
+            flowPoint.Init();
+        }
     }
 }
