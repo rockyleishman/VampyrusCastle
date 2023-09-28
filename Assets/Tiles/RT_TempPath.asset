@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: RT_TempPath
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: -538359822, guid: a54a77234af7d3f4f897193af68419ab, type: 3}
-  m_DefaultGameObject: {fileID: 0}
+  m_DefaultGameObject: {fileID: 7965133706072371386, guid: 4babdfeb754a6994185a3bea9abdc09f, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 0
     m_Sprites:
     - {fileID: -415480566, guid: a54a77234af7d3f4f897193af68419ab, type: 3}
-    m_GameObject: {fileID: 0}
+    m_GameObject: {fileID: 7965133706072371386, guid: 4babdfeb754a6994185a3bea9abdc09f, type: 3}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
     m_PerlinScale: 0.5
