@@ -16,16 +16,6 @@ public class PlayerController : DestructableObject
 
     private Animator _animator;
 
-    //constant structs
-    private Quaternion k_rotS = Quaternion.Euler(0.0f, 0.0f, 0.0f);
-    private Quaternion k_rotSE = Quaternion.Euler(0.0f, 0.0f, 45.0f);
-    private Quaternion k_rotE = Quaternion.Euler(0.0f, 0.0f, 90.0f);
-    private Quaternion k_rotNE = Quaternion.Euler(0.0f, 0.0f, 135.0f);
-    private Quaternion k_rotN = Quaternion.Euler(0.0f, 0.0f, 180.0f);
-    private Quaternion k_rotNW = Quaternion.Euler(0.0f, 0.0f, 225.0f);
-    private Quaternion k_rotW = Quaternion.Euler(0.0f, 0.0f, 270.0f);
-    private Quaternion k_rotSW = Quaternion.Euler(0.0f, 0.0f, 315.0f);
-
     protected override void Start()
     {
         base.Start();
@@ -142,52 +132,52 @@ public class PlayerController : DestructableObject
         if (Input.GetButtonDown("Fire1"))
         {
             //determine attack rotation
-            Quaternion rotation;
+            Vector3 attackDirection;
             switch (_playerDirection)
             {
                 case 1:
                     //SW
-                    rotation = k_rotSW;
+                    attackDirection = (Vector3.down + Vector3.left).normalized;
                     break;
 
                 case 2:
                     //W
-                    rotation = k_rotW;
+                    attackDirection = Vector3.left;
                     break;
 
                 case 3:
                     //NW
-                    rotation = k_rotNW;
+                    attackDirection = (Vector3.up + Vector3.left).normalized;
                     break;
 
                 case 4:
                     //N
-                    rotation = k_rotN;
+                    attackDirection = Vector3.up;
                     break;
 
                 case 5:
                     //NE
-                    rotation = k_rotNE;
+                    attackDirection = (Vector3.up + Vector3.right).normalized;
                     break;
 
                 case 6:
                     //E
-                    rotation = k_rotE;
+                    attackDirection = Vector3.right;
                     break;
 
                 case 7:
                     //SE
-                    rotation = k_rotSE;
+                    attackDirection = (Vector3.down + Vector3.right).normalized;
                     break;
 
                 default:
                     //S
-                    rotation = k_rotS;
+                    attackDirection = Vector3.down;
                     break;
             }
 
             //trigger attack event
-            PlayerAttackEvent.TriggerEvent(transform.position, rotation, null);
+            PlayerAttackEvent.TriggerEvent(transform.position, attackDirection, null);
         }
     }
 

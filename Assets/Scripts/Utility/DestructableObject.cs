@@ -7,6 +7,7 @@ public abstract class DestructableObject : PoolObject
     [Header("Health")]
     [SerializeField] public float MaxHP = 100;
     protected float _currentHP;
+    internal bool IsAlive;
     [SerializeField][Range(0.0f, 10.0f)] public float KnockbackMultiplier = 1.0f;
     private Vector3 _knockbackRemaining;
     private float _knockbackTimeRemaining;
@@ -37,6 +38,7 @@ public abstract class DestructableObject : PoolObject
     {
         _currentHP = MaxHP;
         _iFrameTimeLeft = 0.0f;
+        IsAlive = true;
     }
 
     public void DamageHP(float hp)
@@ -48,6 +50,7 @@ public abstract class DestructableObject : PoolObject
             if (_currentHP <= 0.0f)
             {
                 _currentHP = 0.0f;
+                IsAlive = false;
                 DestroyObject();
             }
         }
@@ -65,8 +68,11 @@ public abstract class DestructableObject : PoolObject
 
     public void Knockback(Vector3 knockback, float time)
     {
-        _knockbackRemaining = knockback * KnockbackMultiplier;
-        _knockbackTimeRemaining = time;
+        if (_iFrameTimeLeft <= 0.0f)
+        {
+            _knockbackRemaining = knockback * KnockbackMultiplier;
+            _knockbackTimeRemaining = time;
+        }        
     }
 
     public void ActivateIFrames()

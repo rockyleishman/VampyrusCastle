@@ -10,10 +10,10 @@ public class SwordAttackEDC : AttackEDC
     [SerializeField] public float KnockbackDistance = 2.0f;
     [SerializeField] public float KnockbackVelocity = 20.0f;
 
-    public override void TriggerAttack(Vector3 attackOrigin, Quaternion attackRotation, DestructableObject attackTarget)
+    public override void TriggerAttack(Vector3 attackOrigin, Vector3 attackDirection, DestructableObject attackTarget)
     {
         //spawn attack
-        PlayerMeleeAttack meleeAttack = (PlayerMeleeAttack)PoolManager.Instance.Spawn(MeleeAttack.name, attackOrigin + (attackRotation * Vector3.down * Range), attackRotation);
+        PlayerMeleeAttack meleeAttack = (PlayerMeleeAttack)PoolManager.Instance.Spawn(MeleeAttack.name, attackOrigin + attackDirection * Range, Quaternion.LookRotation(Vector3.forward, -attackDirection));
         meleeAttack.Init(Damage, KnockbackDistance, KnockbackVelocity);
     }
 }

@@ -17,11 +17,11 @@ public class AttackEvent : ScriptableObject
         _listeners.Remove(listener);
     }
 
-    public void TriggerEvent(Vector3 attackOrigin, Quaternion attackRotation, DestructableObject attackTarget)
+    public void TriggerEvent(Vector3 attackOrigin, Vector3 attackDirection, DestructableObject attackTarget)
     {
         foreach (AttackEventListener listener in _listeners)
         {
-            listener.OnTriggered(attackOrigin, attackRotation, attackTarget);
+            listener.OnTriggered(attackOrigin, attackDirection, attackTarget);
         }
     }
 }

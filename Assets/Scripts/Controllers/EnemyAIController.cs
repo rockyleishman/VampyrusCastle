@@ -10,7 +10,7 @@ public class EnemyAIController : DestructableObject
     [SerializeField] public float PathPointReachedRadius = 1.0f;
     private PathPoint _currentPathPoint;
 
-    [Header("Collision Attacks")]
+    [Header("Player Collision")]
     [SerializeField] public float CollisionDamage = 5.0f;
     [SerializeField] public float CollisionCooldown = 1f;
     [SerializeField] public float CollisionKnockbackDistance = 2.0f;
@@ -143,7 +143,7 @@ public class EnemyAIController : DestructableObject
         }
     }
 
-    //collision damage
+    //collision effects
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (CollisionDamage > 0.0f && _isCollisionReady)
