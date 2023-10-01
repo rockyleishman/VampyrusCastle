@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIController : DestructableObject
+public class EnemyAIController : DestructableObject
 {
     [Header("Movement")]
     [SerializeField] public float MovementSpeed = 4.0f;

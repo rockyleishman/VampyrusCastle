@@ -11,12 +11,8 @@ public class PlayerController : DestructableObject
     private float _inputDirectionTime;
     private int _playerDirection;
 
-    [Header("Sword Attack")]
-    [SerializeField] public PlayerMeleeAttack MeleeAttack;
-    [SerializeField] public float Damage = 5.0f;
-    [SerializeField] public float Range = 1.5f;
-    [SerializeField] public float KnockbackDistance = 2.0f;
-    [SerializeField] public float KnockbackVelocity = 20.0f;
+    [Header("Events")]
+    [SerializeField] public AttackEvent PlayerAttackEvent;
 
     private Animator _animator;
 
@@ -145,63 +141,53 @@ public class PlayerController : DestructableObject
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            //determine attack position and rotation
-            Vector3 position;
+            //determine attack rotation
             Quaternion rotation;
             switch (_playerDirection)
             {
                 case 1:
                     //SW
-                    position = transform.position + ((Vector3.down + Vector3.left).normalized * Range);
                     rotation = k_rotSW;
                     break;
 
                 case 2:
                     //W
-                    position = transform.position + (Vector3.left * Range);
                     rotation = k_rotW;
                     break;
 
                 case 3:
                     //NW
-                    position = transform.position + ((Vector3.up + Vector3.left).normalized * Range);
                     rotation = k_rotNW;
                     break;
 
                 case 4:
                     //N
-                    position = transform.position + (Vector3.up * Range);
                     rotation = k_rotN;
                     break;
 
                 case 5:
                     //NE
-                    position = transform.position + ((Vector3.up + Vector3.right).normalized * Range);
                     rotation = k_rotNE;
                     break;
 
                 case 6:
                     //E
-                    position = transform.position + (Vector3.right * Range);
                     rotation = k_rotE;
                     break;
 
                 case 7:
                     //SE
-                    position = transform.position + ((Vector3.down + Vector3.right).normalized * Range);
                     rotation = k_rotSE;
                     break;
 
                 default:
                     //S
-                    position = transform.position + (Vector3.down * Range);
                     rotation = k_rotS;
                     break;
             }
-            
-            //spawn attack
-            PlayerMeleeAttack meleeAttack = (PlayerMeleeAttack)PoolManager.Instance.Spawn(MeleeAttack.name, position, rotation);
-            meleeAttack.Init(Damage, KnockbackDistance, KnockbackVelocity);
+
+            //trigger attack event
+            PlayerAttackEvent.TriggerEvent(transform.position, rotation, null);
         }
     }
 
