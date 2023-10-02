@@ -141,11 +141,14 @@ MonoBehaviour:
   KnockbackMultiplier: 1
   IFramesTime: 0.1
   MovementSpeed: 4
-  PathPointReachedRadius: 1
+  PathPointReachedRadius: 2
   CollisionDamage: 5
   CollisionCooldown: 1
   CollisionKnockbackDistance: 2
   CollisionKnockbackVelocity: 20
+  MinCandyDropped: 1
+  MaxCandyDropped: 3
+  CandySpawnEvent: {fileID: 11400000, guid: 49b617f849356c446ad454c648cf00a8, type: 2}
 --- !u!95 &814623844818515177
 Animator:
   serializedVersion: 5

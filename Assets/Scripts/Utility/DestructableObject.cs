@@ -29,7 +29,7 @@ public abstract class DestructableObject : PoolObject
         InitStatuses();
     }
 
-    protected void InitHP()
+    protected virtual void InitHP()
     {
         _currentHP = MaxHP;
         _iFrameTimeLeft = 0.0f;
@@ -60,7 +60,7 @@ public abstract class DestructableObject : PoolObject
         HealHP(HealingPerSecond * Time.deltaTime * HealingPerSecond);
     }
 
-    public void DamageHP(float hp)
+    public virtual void DamageHP(float hp)
     {
         if (_iFrameTimeLeft <= 0.0f)
         {
@@ -75,7 +75,7 @@ public abstract class DestructableObject : PoolObject
         }
     }
 
-    public void HealHP(float hp)
+    public virtual void HealHP(float hp)
     {
         _currentHP += hp;
 

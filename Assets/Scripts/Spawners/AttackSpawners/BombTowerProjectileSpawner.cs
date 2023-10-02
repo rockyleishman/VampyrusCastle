@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombTowerAttackEDC : AttackEDC
+public class BombTowerProjectileSpawner : AttackSpawner
 {
     [SerializeField] public FriendlyExplosiveProjectile BombTowerProjectile;
     [SerializeField] public float Damage = 10.0f;

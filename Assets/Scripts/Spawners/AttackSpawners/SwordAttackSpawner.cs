@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordAttackEDC : AttackEDC
+public class SwordAttackSpawner : AttackSpawner
 {
     [SerializeField] public PlayerMeleeAttack MeleeAttack;
     [SerializeField] public float Damage = 5.0f;
