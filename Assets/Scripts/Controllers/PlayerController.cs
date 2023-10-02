@@ -41,7 +41,7 @@ public class PlayerController : DestructableObject
         Vector2 moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0.0f).normalized;
 
         //apply movement
-        transform.Translate(moveDirection * MovementSpeed * Time.deltaTime);
+        transform.Translate(moveDirection * MovementSpeed * Time.deltaTime * SpeedMultiplier);
 
         //change player direction
         int lastDirection = _playerDirection;
@@ -52,19 +52,19 @@ public class PlayerController : DestructableObject
             {
                 //northeast
                 _inputDirection = 5;
-                _inputDirectionTime += Time.deltaTime;
+                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
             }
             else if (moveDirection.y < 0.0f)
             {
                 //southeast
                 _inputDirection = 7;
-                _inputDirectionTime += Time.deltaTime;
+                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
             }
             else
             {
                 //east
                 _inputDirection = 6;
-                _inputDirectionTime += Time.deltaTime;
+                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
             }
         }
         else if (moveDirection.x < 0.0f)
@@ -73,19 +73,19 @@ public class PlayerController : DestructableObject
             {
                 //northwest
                 _inputDirection = 3;
-                _inputDirectionTime += Time.deltaTime;
+                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
             }
             else if (moveDirection.y < 0.0f)
             {
                 //southwest
                 _inputDirection = 1;
-                _inputDirectionTime += Time.deltaTime;
+                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
             }
             else
             {
                 //west
                 _inputDirection = 2;
-                _inputDirectionTime += Time.deltaTime;
+                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
             }
         }
         else
@@ -94,13 +94,13 @@ public class PlayerController : DestructableObject
             {
                 //north
                 _inputDirection = 4;
-                _inputDirectionTime += Time.deltaTime;
+                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
             }
             else if (moveDirection.y < 0.0f)
             {
                 //south
                 _inputDirection = 0;
-                _inputDirectionTime += Time.deltaTime;
+                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
             }
             else
             {

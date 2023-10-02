@@ -37,7 +37,7 @@ public class EnemyAIController : DestructableObject
         FollowPath();
 
         //update collision readiness
-        _collisionCooldownTimer -= Time.deltaTime;
+        _collisionCooldownTimer -= Time.deltaTime * SpeedMultiplier;
 
         if (_collisionCooldownTimer <= 0.0f)
         {
@@ -83,7 +83,7 @@ public class EnemyAIController : DestructableObject
 
         //move towards current path point + wander
         Vector3 moveDirection = (_currentPathPoint.transform.position - transform.position).normalized;
-        transform.Translate(moveDirection * (MovementSpeed * Time.deltaTime));
+        transform.Translate(moveDirection * (MovementSpeed * Time.deltaTime * SpeedMultiplier));
 
         //change enemy direction
         int lastDirection = _enemyDirection;

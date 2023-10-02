@@ -14,24 +14,19 @@ public abstract class DestructableObject : PoolObject
     [SerializeField] public float IFramesTime = 0.5f;
     private float _iFrameTimeLeft;
 
+    //status variables
+    internal float SpeedMultiplier;
+    internal float HealingPerSecond;
+
     protected virtual void Start()
     {
-        InitHP();
+        Init();
     }
 
-    protected virtual void Update()
+    protected void Init()
     {
-        //decrease i frame time left
-        _iFrameTimeLeft -= Time.deltaTime;
-
-        //apply knockback
-        if (_knockbackTimeRemaining > 0.0f)
-        {
-            Vector3 knockbackThisFrame = _knockbackRemaining / _knockbackTimeRemaining * Time.deltaTime;
-            transform.Translate(knockbackThisFrame);
-            _knockbackRemaining -= knockbackThisFrame;
-            _knockbackTimeRemaining -= Time.deltaTime;
-        }
+        InitHP();
+        InitStatuses();
     }
 
     protected void InitHP()
@@ -39,6 +34,30 @@ public abstract class DestructableObject : PoolObject
         _currentHP = MaxHP;
         _iFrameTimeLeft = 0.0f;
         IsAlive = true;
+    }
+
+    protected void InitStatuses()
+    {
+        SpeedMultiplier = 1.0f;
+        HealingPerSecond = 0.0f;
+    }
+
+    protected virtual void Update()
+    {
+        //decrease i frame time left
+        _iFrameTimeLeft -= Time.deltaTime * SpeedMultiplier;
+
+        //apply knockback
+        if (_knockbackTimeRemaining > 0.0f)
+        {
+            Vector3 knockbackThisFrame = _knockbackRemaining / _knockbackTimeRemaining * Time.deltaTime * SpeedMultiplier;
+            transform.Translate(knockbackThisFrame);
+            _knockbackRemaining -= knockbackThisFrame;
+            _knockbackTimeRemaining -= Time.deltaTime * SpeedMultiplier;
+        }
+
+        //apply heal over time
+        HealHP(HealingPerSecond * Time.deltaTime * HealingPerSecond);
     }
 
     public void DamageHP(float hp)

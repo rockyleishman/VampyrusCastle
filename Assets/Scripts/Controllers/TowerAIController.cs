@@ -7,7 +7,7 @@ public class TowerAIController : MonoBehaviour
     [Header("Tower Settings")]
     [SerializeField] public float AttackSpeed = 1f; //if <= 0, targeting and attacks are disabled
     private float _attackTimer;
-    [SerializeField] public float TargetRange = 6.5f;
+    [SerializeField] public float TargetingRange = 6.5f;
     private DestructableObject _target;
     private bool _isSearchingForTarget;
 
@@ -30,13 +30,12 @@ public class TowerAIController : MonoBehaviour
             CheckTarget();
             AttemptAttack();
         }
-        
     }
 
     private void CheckTarget()
     {
         //search for new target if out of range or dead
-        if (_target == null || Vector3.Distance(transform.position, _target.transform.position) > TargetRange || !_target.IsAlive)
+        if (_target == null || Vector3.Distance(transform.position, _target.transform.position) > TargetingRange || !_target.IsAlive)
         {
             _target = null;
             _isSearchingForTarget = true;
