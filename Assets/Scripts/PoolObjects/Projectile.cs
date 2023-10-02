@@ -14,7 +14,7 @@ public class Projectile : PoolObject
     protected Vector3 _knockback;
     protected float _knockbackTime;
 
-    public void Init(float damage, int pierce, float range, float speed, float knockbackDistance, float knockbackVelocity)
+    public virtual void Init(float damage, int pierce, float range, float speed, float knockbackDistance, float knockbackVelocity)
     {
         //init
         _damage = damage;

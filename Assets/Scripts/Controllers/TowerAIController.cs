@@ -5,7 +5,7 @@ using UnityEngine;
 public class TowerAIController : MonoBehaviour
 {
     [Header("Tower Settings")]
-    [SerializeField] public float AttackSpeed = 1f;
+    [SerializeField] public float AttackSpeed = 1f; //if <= 0, targeting and attacks are disabled
     private float _attackTimer;
     [SerializeField] public float TargetRange = 6.5f;
     private DestructableObject _target;
@@ -25,8 +25,12 @@ public class TowerAIController : MonoBehaviour
         //decrease attack timer
         _attackTimer -= Time.deltaTime;
 
-        CheckTarget();
-        AttemptAttack();
+        if (AttackSpeed > 0.0f)
+        {
+            CheckTarget();
+            AttemptAttack();
+        }
+        
     }
 
     private void CheckTarget()
@@ -45,7 +49,7 @@ public class TowerAIController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (_isSearchingForTarget)
+        if (_isSearchingForTarget && AttackSpeed > 0.0f)
         {
             EnemyAIController enemy = other?.GetComponent<EnemyAIController>();
 
