@@ -17,11 +17,11 @@ public class GameEvent : ScriptableObject
         _listeners.Remove(listener);
     }
 
-    public void TriggerEvent()
+    public void TriggerEvent(Vector3 position)
     {
         foreach (GameEventListener listener in _listeners)
         {
-            listener.OnTriggered();
+            listener.OnTriggered(position);
         }
     }
 }

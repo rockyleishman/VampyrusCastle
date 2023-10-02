@@ -181,6 +181,28 @@ public class PlayerController : DestructableObject
         }
     }
 
+    protected override void InitHP()
+    {
+        base.InitHP();
+
+        DataManager.Instance.PlayerDataObject.MaxHP = MaxHP;
+        DataManager.Instance.PlayerDataObject.CurrentHP = _currentHP;
+    }
+
+    public override void DamageHP(float hp)
+    {
+        base.DamageHP(hp);
+
+        DataManager.Instance.PlayerDataObject.CurrentHP = _currentHP;
+    }
+
+    public override void HealHP(float hp)
+    {
+        base.HealHP(hp);
+
+        DataManager.Instance.PlayerDataObject.CurrentHP = _currentHP;
+    }
+
     protected override void DestroyObject()
     {
         //TODO

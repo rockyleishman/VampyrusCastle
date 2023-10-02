@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    private static GameManager instance;
+    /*private static GameManager instance;
 
     public static GameManager Instance
     {
@@ -23,32 +23,45 @@ public class GameManager : Singleton<GameManager>
         {
             Destroy(gameObject);
         }
+    }*/
+
+    private void Awake()
+    {
+        //set candy to 0
+        DataManager.Instance.LevelDataObject.Candy = 0;
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public void AddCandy(int candy)
+    {
+        DataManager.Instance.LevelDataObject.Candy += candy;
+        Debug.Log("Candy: " + DataManager.Instance.LevelDataObject.Candy);
+    }
+
+    public void RemoveCandy(int candy)
+    {
+        DataManager.Instance.LevelDataObject.Candy -= candy;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*//when the game initialized, we will create three kinds of bullets pool of tower
     public GameObject bulletA;
     public GameObject bulletB;

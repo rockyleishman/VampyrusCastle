@@ -136,11 +136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -268,7 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 248851915}
   m_Layer: 0
-  m_Name: EventDrivenControllers
+  m_Name: Spawners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,6 +289,7 @@ Transform:
   - {fileID: 943931169}
   - {fileID: 2122693949}
   - {fileID: 5273566691860565064}
+  - {fileID: 368903362}
   m_Father: {fileID: 515931540}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2866,6 +2867,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626bb6ea438b25a499c4282074e5d191, type: 3}
+--- !u!1001 &368903361
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 248851915}
+    m_Modifications:
+    - target: {fileID: 5094435602631722514, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094435602631722514, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094435602631722514, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094435602631722514, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094435602631722514, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094435602631722514, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094435602631722514, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094435602631722514, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094435602631722514, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094435602631722514, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094435602631722514, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589857179311176544, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+      propertyPath: m_Name
+      value: CandySpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+--- !u!4 &368903362 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5094435602631722514, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+  m_PrefabInstance: {fileID: 368903361}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &371469270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3130,6 +3193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelDataObject: {fileID: 11400000, guid: 980bf936e9b2e1d4ca23f36d5500ba73, type: 2}
+  PlayerDataObject: {fileID: 11400000, guid: f61c067748aaa4943b5905330edeebef, type: 2}
 --- !u!114 &515931538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3181,6 +3245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 563743098}
   - component: {fileID: 563743099}
+  - component: {fileID: 563743100}
   m_Layer: 0
   m_Name: GameEventListeners
   m_TagString: Untagged
@@ -3215,10 +3280,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73515994ad528354cb71ae48ba6b3691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameEvent: {fileID: 0}
+  GameEvent: {fileID: 11400000, guid: 49b617f849356c446ad454c648cf00a8, type: 2}
   OnEventTriggered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 631731581}
+        m_TargetAssemblyTypeName: CandySpawner, Assembly-CSharp
+        m_MethodName: SpawnCandy
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &563743100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563743097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73515994ad528354cb71ae48ba6b3691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameEvent: {fileID: 11400000, guid: 4e5151139b678bb459aa598a4fd785e0, type: 2}
+  OnEventTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 515931539}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: AddCandy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &582069354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
@@ -3271,6 +3376,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &631731581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -136437661066698094, guid: 0f43bfbe444693c44963fb4fd0f6895b, type: 3}
+  m_PrefabInstance: {fileID: 368903361}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9829ce1589ff8234fb045d617c2c78d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &667348742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3353,11 +3469,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3455,7 +3571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 565832173219765706, guid: d9417678074fe4b45af89aab7e2d2cdf, type: 3}
       propertyPath: m_Name
-      value: EDC_SwordAttack
+      value: SwordAttackSpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9417678074fe4b45af89aab7e2d2cdf, type: 3}
@@ -3472,11 +3588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8536,11 +8652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9575,11 +9691,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.5
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 814623844818515174, guid: 1de8e904046b21c4cad8e188f0cf24a7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9628,7 +9744,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3538444298227846626, guid: e489c21f276171a41aedf780d17e449c, type: 3}
       propertyPath: m_Name
-      value: EDC_BasicTowerAttack
+      value: BasicTowerProjectileSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 3538444298227846628, guid: e489c21f276171a41aedf780d17e449c, type: 3}
       propertyPath: m_RootOrder
@@ -9685,7 +9801,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1787368929474430858, guid: cecf67ac56b8d3b4ead49baa656e5d86, type: 3}
       propertyPath: m_Name
-      value: EDC_BombTowerAttack
+      value: BombTowerProjectileSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 6411388375844371068, guid: cecf67ac56b8d3b4ead49baa656e5d86, type: 3}
       propertyPath: m_RootOrder

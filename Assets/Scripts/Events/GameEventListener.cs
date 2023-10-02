@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class GameEventListener : MonoBehaviour
 {
     public GameEvent GameEvent;
-    public UnityEvent OnEventTriggered;
+    public UnityEvent<Vector3> OnEventTriggered;
 
     private void OnEnable()
     {
@@ -18,8 +18,8 @@ public class GameEventListener : MonoBehaviour
         GameEvent.RemoveListener(this);
     }
 
-    public void OnTriggered()
+    public void OnTriggered(Vector3 position)
     {
-        OnEventTriggered.Invoke();
+        OnEventTriggered.Invoke(position);
     }
 }

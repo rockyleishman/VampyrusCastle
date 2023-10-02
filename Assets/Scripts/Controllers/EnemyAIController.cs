@@ -18,6 +18,13 @@ public class EnemyAIController : DestructableObject
     private float _collisionCooldownTimer;
     private bool _isCollisionReady;
 
+    [Header("Events")]
+    [SerializeField] public int MinCandyDropped = 1;
+    [SerializeField] public int MaxCandyDropped = 3;
+
+    [Header("Events")]
+    [SerializeField] public GameEvent CandySpawnEvent;
+
     private Animator _animator;
 
     protected override void Start()
@@ -162,6 +169,15 @@ public class EnemyAIController : DestructableObject
 
     protected override void DestroyObject()
     {
+        //spawn candy
+        int candyAmount = Random.Range(MinCandyDropped, MaxCandyDropped + 1);
+
+        for (int i = 0; i < candyAmount; i++)
+        {
+            CandySpawnEvent.TriggerEvent(transform.position);
+        }
+
+        //despawn
         OnDespawn();
     }
 }
