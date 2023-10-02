@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class AttackEDC : MonoBehaviour
 {
-    public abstract void TriggerAttack(Vector3 attackOrigin, Quaternion attackRotation, DestructableObject attackTarget);
+    public abstract void TriggerAttack(Vector3 attackOrigin, Vector3 attackDirection, DestructableObject attackTarget);
 }

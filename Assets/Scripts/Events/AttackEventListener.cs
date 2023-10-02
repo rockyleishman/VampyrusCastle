@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class AttackEventListener : MonoBehaviour
 {
     public AttackEvent AttackEvent;
-    public UnityEvent<Vector3, Quaternion, DestructableObject> OnEventTriggered;
+    public UnityEvent<Vector3, Vector3, DestructableObject> OnEventTriggered;
 
     private void OnEnable()
     {
@@ -18,8 +18,8 @@ public class AttackEventListener : MonoBehaviour
         AttackEvent.RemoveListener(this);
     }
 
-    public void OnTriggered(Vector3 attackOrigin, Quaternion attackRotation, DestructableObject attackTarget)
+    public void OnTriggered(Vector3 attackOrigin, Vector3 attackDirection, DestructableObject attackTarget)
     {
-        OnEventTriggered.Invoke(attackOrigin, attackRotation, attackTarget);
+        OnEventTriggered.Invoke(attackOrigin, attackDirection, attackTarget);
     }
 }

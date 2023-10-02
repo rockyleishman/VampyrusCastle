@@ -470,7 +470,7 @@ TextureImporter:
         width: 8
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -491,7 +491,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -499,6 +499,27 @@ TextureImporter:
       bones: []
       spriteID: f4f07c988f737bf45888d043a2616d0d
       internalID: 1502877656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempTowerAttack
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52e9bdc206531e64386a7125ca537f2a
+      internalID: -1785511142
       vertices: []
       indices: 
       edges: []
@@ -533,6 +554,7 @@ TextureImporter:
       TempPlayer_SE: -619570891
       TempPlayer_SW: -1853325374
       TempPlayer_W: 1838665997
+      TempTowerAttack: -1785511142
       TempTree: 90157843
   spritePackingTag: 
   pSDRemoveMatte: 0
