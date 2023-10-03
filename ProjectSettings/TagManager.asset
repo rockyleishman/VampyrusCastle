@@ -68,12 +68,15 @@ TagManager:
   - name: Graves
     uniqueID: 1723904587
     locked: 0
-  - name: Player
-    uniqueID: 1205882075
-    locked: 0
   - name: Pumkin
     uniqueID: 2414284903
     locked: 0
   - name: Flower
     uniqueID: 3960825639
+    locked: 0
+  - name: Gate
+    uniqueID: 478573917
+    locked: 0
+  - name: Player
+    uniqueID: 1205882075
     locked: 0
