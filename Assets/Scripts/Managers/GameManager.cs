@@ -34,7 +34,6 @@ public class GameManager : Singleton<GameManager>
     public void AddCandy(int candy)
     {
         DataManager.Instance.PlayerDataObject.Candy += candy;
-        Debug.Log("Candy: " + DataManager.Instance.PlayerDataObject.Candy);
     }
 
     public void RemoveCandy(int candy)
