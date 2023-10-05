@@ -16,6 +16,14 @@ public class HUDManager : Singleton<HUDManager>
     [SerializeField] public TextMeshProUGUI CandyField;
     [SerializeField] public TextMeshProUGUI CrystalChargeField;
 
+    [Header("Sliding Bars")]
+    [SerializeField] public GameObject HPBarFill;
+    [SerializeField] public GameObject[] HPBarEmpty;
+    [SerializeField] public GameObject CandyBarFill;
+    [SerializeField] public GameObject[] CandyBarEmpty;
+    [SerializeField] public GameObject CrystalChargeBarFill;
+    [SerializeField] public GameObject[] CrystalChargeBarEmpty;
+
     private void Start()
     {
         ShowHP();
@@ -65,12 +73,28 @@ public class HUDManager : Singleton<HUDManager>
 
     public void UpdateHP()
     {
+        //set text
         HPField.text = "" + Mathf.CeilToInt(DataManager.Instance.PlayerDataObject.CurrentHP);
+
+        //set bar
+        HPBarFill.transform.localScale = new Vector3(Mathf.Clamp01(DataManager.Instance.PlayerDataObject.CurrentHP / DataManager.Instance.PlayerDataObject.MaxHP), 1.0f, 1.0f);
+        foreach (GameObject barEmpty in HPBarEmpty)
+        {
+            barEmpty.transform.localScale = new Vector3(Mathf.Clamp01((DataManager.Instance.PlayerDataObject.MaxHP - DataManager.Instance.PlayerDataObject.CurrentHP) / DataManager.Instance.PlayerDataObject.MaxHP), 1.0f, 1.0f);
+        }
     }
 
     public void UpdateCandy()
     {
+        //set text
         CandyField.SetText(DataManager.Instance.PlayerDataObject.Candy.ToString());
+
+        //set bar
+        CandyBarFill.transform.localScale = new Vector3(Mathf.Clamp01((float)DataManager.Instance.PlayerDataObject.Candy / (float)DataManager.Instance.LevelDataObject.VisualMaxCandy), 1.0f, 1.0f);
+        foreach (GameObject barEmpty in CandyBarEmpty)
+        {
+            barEmpty.transform.localScale = new Vector3(Mathf.Clamp01(((float)DataManager.Instance.LevelDataObject.VisualMaxCandy - (float)DataManager.Instance.PlayerDataObject.Candy) / (float)DataManager.Instance.LevelDataObject.VisualMaxCandy), 1.0f, 1.0f);
+        }
     }
 
     public void UpdateCrystalCharge()
