@@ -6,5 +6,4 @@ using UnityEngine;
 public class LevelData : ScriptableObject
 {
     internal PathPoint[] PathPoints;
-    internal int Candy;
 }
