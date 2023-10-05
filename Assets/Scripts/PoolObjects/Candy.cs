@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Candy : PoolObject
 {
+    [SerializeField] public GameEvent CandyCollectionEvent;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other?.GetComponent<PlayerController>() != null)
         {
-            //add to candy count
-            DataManager.Instance.PlayerDataObject.Candy++;
+            //trigger candy collection event
+            CandyCollectionEvent.TriggerEvent(transform.position);
 
             //despawn
             OnDespawn();

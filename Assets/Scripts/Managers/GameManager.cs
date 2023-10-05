@@ -28,18 +28,18 @@ public class GameManager : Singleton<GameManager>
     private void Awake()
     {
         //set candy to 0
-        DataManager.Instance.LevelDataObject.Candy = 0;
+        DataManager.Instance.PlayerDataObject.Candy = 0;
     }
 
     public void AddCandy(int candy)
     {
-        DataManager.Instance.LevelDataObject.Candy += candy;
-        Debug.Log("Candy: " + DataManager.Instance.LevelDataObject.Candy);
+        DataManager.Instance.PlayerDataObject.Candy += candy;
+        Debug.Log("Candy: " + DataManager.Instance.PlayerDataObject.Candy);
     }
 
     public void RemoveCandy(int candy)
     {
-        DataManager.Instance.LevelDataObject.Candy -= candy;
+        DataManager.Instance.PlayerDataObject.Candy -= candy;
     }
 
 

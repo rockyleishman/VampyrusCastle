@@ -13,6 +13,9 @@ public class PlayerController : DestructableObject
 
     [Header("Events")]
     [SerializeField] public AttackEvent PlayerAttackEvent;
+    [SerializeField] public GameEvent PlayerDamageEvent;
+    [SerializeField] public GameEvent PlayerHealEvent;
+    [SerializeField] public GameEvent PlayerDeathEvent;
 
     private Animator _animator;
 
@@ -194,6 +197,8 @@ public class PlayerController : DestructableObject
         base.DamageHP(hp);
 
         DataManager.Instance.PlayerDataObject.CurrentHP = _currentHP;
+
+        PlayerDamageEvent.TriggerEvent(transform.position);
     }
 
     public override void HealHP(float hp)
@@ -201,11 +206,14 @@ public class PlayerController : DestructableObject
         base.HealHP(hp);
 
         DataManager.Instance.PlayerDataObject.CurrentHP = _currentHP;
+
+        PlayerHealEvent.TriggerEvent(transform.position);
     }
 
     protected override void DestroyObject()
     {
-        //TODO
+        PlayerDeathEvent.TriggerEvent(transform.position);
+
         Debug.Log("Player Dead");
     }
 }

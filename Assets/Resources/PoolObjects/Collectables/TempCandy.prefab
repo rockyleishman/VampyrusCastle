@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ab4a95a24ce414aa4e85fa63443212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CandyCollectionEvent: {fileID: 11400000, guid: 4e5151139b678bb459aa598a4fd785e0,
+    type: 2}
 --- !u!58 &6552020429563435021
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class PathManager : Singleton<PathManager>
     private void Start()
     {
         //disable rendering
-        GetComponent<Renderer>().renderingLayerMask = 0;
+        GetComponent<Renderer>().sortingOrder = -10000;
 
         //load all path points into level data
         DataManager.Instance.LevelDataObject.PathPoints = GetComponentsInChildren<PathPoint>();
