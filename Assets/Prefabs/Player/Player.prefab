@@ -230,3 +230,5 @@ MonoBehaviour:
   PlayerDamageEvent: {fileID: 11400000, guid: 4801f5a1d7dda8941870fe5cd5828c25, type: 2}
   PlayerHealEvent: {fileID: 11400000, guid: 5a0909528765993418294ca030d62e0f, type: 2}
   PlayerDeathEvent: {fileID: 11400000, guid: 66df9bf1af9044b458393682418e1564, type: 2}
+  BuildModeEnter: {fileID: 11400000, guid: 50b9097aed5f6134b8549c15a232aee4, type: 2}
+  BuildModeExit: {fileID: 11400000, guid: 44a86ec1604014e4b91302c99fb51a23, type: 2}
