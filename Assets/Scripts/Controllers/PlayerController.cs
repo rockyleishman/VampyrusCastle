@@ -16,6 +16,8 @@ public class PlayerController : DestructableObject
     [SerializeField] public GameEvent PlayerDamageEvent;
     [SerializeField] public GameEvent PlayerHealEvent;
     [SerializeField] public GameEvent PlayerDeathEvent;
+    [SerializeField] public GameEvent BuildModeEnter;
+    [SerializeField] public GameEvent BuildModeExit;
 
     private Animator _animator;
 
@@ -23,10 +25,15 @@ public class PlayerController : DestructableObject
     {
         base.Start();
 
+        //set player reference in player data
+        DataManager.Instance.PlayerDataObject.Player = this;
+
+        //init direction variables
         _inputDirection = 0;
         _inputDirectionTime = 0.0f;
         _playerDirection = 0;
 
+        //init animator
         _animator = GetComponent<Animator>();
     }
 
@@ -36,6 +43,7 @@ public class PlayerController : DestructableObject
 
         Movement();
         Attack();
+        BuildMode();
     }
 
     private void Movement()
@@ -182,6 +190,23 @@ public class PlayerController : DestructableObject
             //trigger attack event
             PlayerAttackEvent.TriggerEvent(transform.position, attackDirection, null);
         }
+    }
+
+    private void BuildMode()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (TowerManager.Instance.IsInBuildMode)
+            {
+                //exit build mode
+                BuildModeExit.TriggerEvent(transform.position);
+            }
+            else
+            {
+                //enter build mode
+                BuildModeEnter.TriggerEvent(transform.position);
+            }
+        }        
     }
 
     protected override void InitHP()
