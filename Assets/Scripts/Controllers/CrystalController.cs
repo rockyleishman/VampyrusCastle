@@ -22,6 +22,9 @@ public class CrystalController : DestructableObject
     {
         base.Start();
 
+        //set crystal reference in level data
+        DataManager.Instance.LevelDataObject.Crystal = this;
+
         //set initial HP based on charge percent
         _currentHP = InitialChargePercent * MaxHP / 100.0f;
 
