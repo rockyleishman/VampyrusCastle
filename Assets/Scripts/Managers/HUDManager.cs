@@ -74,7 +74,7 @@ public class HUDManager : Singleton<HUDManager>
     public void UpdateHP()
     {
         //set text
-        HPField.text = "" + Mathf.CeilToInt(DataManager.Instance.PlayerDataObject.CurrentHP);
+        HPField.SetText(Mathf.CeilToInt(DataManager.Instance.PlayerDataObject.CurrentHP).ToString());
 
         //set bar
         HPBarFill.transform.localScale = new Vector3(Mathf.Clamp01(DataManager.Instance.PlayerDataObject.CurrentHP / DataManager.Instance.PlayerDataObject.MaxHP), 1.0f, 1.0f);
@@ -99,6 +99,14 @@ public class HUDManager : Singleton<HUDManager>
 
     public void UpdateCrystalCharge()
     {
-        //TODO: implement crystal charging//
+        //set text
+        CrystalChargeField.SetText(Mathf.FloorToInt(DataManager.Instance.LevelDataObject.CrystalChargePercent).ToString());
+
+        //set bar
+        CrystalChargeBarFill.transform.localScale = new Vector3(Mathf.Clamp01(DataManager.Instance.LevelDataObject.CrystalChargePercent / 100.0f), 1.0f, 1.0f);
+        foreach (GameObject barEmpty in CrystalChargeBarEmpty)
+        {
+            barEmpty.transform.localScale = new Vector3(Mathf.Clamp01((100.0f - DataManager.Instance.LevelDataObject.CrystalChargePercent) / 100.0f), 1.0f, 1.0f);
+        }
     }
 }

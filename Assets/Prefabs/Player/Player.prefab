@@ -232,3 +232,4 @@ MonoBehaviour:
   PlayerDeathEvent: {fileID: 11400000, guid: 66df9bf1af9044b458393682418e1564, type: 2}
   BuildModeEnter: {fileID: 11400000, guid: 50b9097aed5f6134b8549c15a232aee4, type: 2}
   BuildModeExit: {fileID: 11400000, guid: 44a86ec1604014e4b91302c99fb51a23, type: 2}
+  CrystalStartEvent: {fileID: 11400000, guid: 1a0d12c3c2bd74e4788c507ff82838b0, type: 2}
