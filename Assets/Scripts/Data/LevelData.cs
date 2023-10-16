@@ -22,4 +22,5 @@ public class LevelData : ScriptableObject
 
     internal PathPoint[] PathPoints;
     internal float TimeSinceCrystalStart;
+    internal float CrystalChargePercent;
 }

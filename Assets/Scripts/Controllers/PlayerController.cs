@@ -18,6 +18,7 @@ public class PlayerController : DestructableObject
     [SerializeField] public GameEvent PlayerDeathEvent;
     [SerializeField] public GameEvent BuildModeEnter;
     [SerializeField] public GameEvent BuildModeExit;
+    [SerializeField] public GameEvent CrystalStartEvent;
 
     private Animator _animator;
 
@@ -44,6 +45,7 @@ public class PlayerController : DestructableObject
         Movement();
         Attack();
         BuildMode();
+        ActivateCrystal();
     }
 
     private void Movement()
@@ -194,7 +196,7 @@ public class PlayerController : DestructableObject
 
     private void BuildMode()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (TowerManager.Instance.IsInBuildMode)
             {
@@ -207,6 +209,14 @@ public class PlayerController : DestructableObject
                 BuildModeEnter.TriggerEvent(transform.position);
             }
         }        
+    }
+
+    private void ActivateCrystal()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            CrystalStartEvent.TriggerEvent(transform.position);
+        }
     }
 
     protected override void InitHP()
@@ -239,6 +249,6 @@ public class PlayerController : DestructableObject
     {
         PlayerDeathEvent.TriggerEvent(transform.position);
 
-        Debug.Log("Player Dead");
+        Debug.Log("GAME OVER (Player Dead)");
     }
 }
