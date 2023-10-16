@@ -52,6 +52,19 @@ public class EnemyAIController : DestructableObject
         _animator = GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+        Init();
+
+        _collisionCooldownTimer = 0.0f;
+        _isCollisionReady = true;
+
+        _state = EnemyState.FollowPath;
+
+        _currentPathPoint = null;
+        _currentTarget = null;
+    }
+
     protected override void Update()
     {
         base.Update();
