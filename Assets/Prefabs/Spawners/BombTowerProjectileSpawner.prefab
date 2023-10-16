@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6411388375844371068}
-  - component: {fileID: 3132247033000403047}
+  - component: {fileID: 7139025996865434039}
   m_Layer: 0
   m_Name: BombTowerProjectileSpawner
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3132247033000403047
+--- !u!114 &7139025996865434039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908f6231863a80342a20fe8bdd2c3eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BombTowerProjectile: {fileID: -7806509761250018836, guid: da1dcb83e53af1749a43af73d2a361b5,
-    type: 3}
-  Damage: 15
+  BombTowerProjectile: {fileID: 0}
+  DirectDamage: 10
+  AreaDamage: 3
   Radius: 1.5
-  ProjectileSpeed: 10
+  ProjectileSpeed: 20
   KnockbackDistance: 1
   KnockbackVelocity: 20

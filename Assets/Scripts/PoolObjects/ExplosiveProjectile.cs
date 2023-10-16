@@ -6,7 +6,8 @@ public class ExplosiveProjectile : PoolObject
 {
     [SerializeField] public Effect AttackEffect;
     [SerializeField] public Effect ExplosionEffect;
-    protected float _damage;
+    protected float _directDamage;
+    protected float _areaDamage;
     protected float _radius;
     protected float _distance;
     protected Vector3 _origin;
@@ -14,10 +15,11 @@ public class ExplosiveProjectile : PoolObject
     protected float _knockbackDistance;
     protected float _knockbackTime;
 
-    public virtual void Init(float damage, float radius, float distance, float speed, float knockbackDistance, float knockbackVelocity)
+    public virtual void Init(float directDamage, float areaDamage, float radius, float distance, float speed, float knockbackDistance, float knockbackVelocity)
     {
         //init
-        _damage = damage;
+        _directDamage = directDamage;
+        _areaDamage = areaDamage;
         _radius = radius;
         _distance = distance;
         _origin = transform.position;
@@ -45,12 +47,17 @@ public class ExplosiveProjectile : PoolObject
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (_damage > 0.0f)
+        if (_directDamage > 0.0f || _areaDamage > 0.0f)
         {
             DestructableObject destructableObject = other?.GetComponent<DestructableObject>();
 
             if (destructableObject != null)
             {
+                //deal direct damage (area damage applies knockback)
+                destructableObject.DamageHP(_directDamage);
+                destructableObject.ActivateIFrames();
+
+                //deal area damage
                 Explode();
             }
         }
@@ -81,7 +88,7 @@ public class ExplosiveProjectile : PoolObject
     protected void ObjectHit(DestructableObject destructableObject)
     {
         //damage destructable object
-        destructableObject.DamageHP(_damage);
+        destructableObject.DamageHP(_areaDamage);
         destructableObject.Knockback((destructableObject.transform.position - transform.position).normalized * _knockbackDistance, _knockbackTime);
         destructableObject.ActivateIFrames();
     }
