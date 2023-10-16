@@ -6,12 +6,17 @@ public class FriendlyExplosiveProjectile : ExplosiveProjectile
 {
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        if (_damage > 0.0f)
+        if (_directDamage > 0.0f || _areaDamage > 0.0f)
         {
             DestructableObject destructableObject = other?.GetComponent<DestructableObject>();
 
             if (destructableObject != null && !(destructableObject is PlayerController))
             {
+                //deal direct damage (area damage applies knockback)
+                destructableObject.DamageHP(_directDamage);
+                destructableObject.ActivateIFrames();
+
+                //deal area damage
                 Explode();
             }
         }

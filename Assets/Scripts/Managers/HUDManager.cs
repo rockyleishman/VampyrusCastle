@@ -100,7 +100,7 @@ public class HUDManager : Singleton<HUDManager>
     public void UpdateCrystalCharge()
     {
         //set text
-        CrystalChargeField.SetText(Mathf.FloorToInt(DataManager.Instance.LevelDataObject.CrystalChargePercent).ToString());
+        CrystalChargeField.SetText(Mathf.FloorToInt(DataManager.Instance.LevelDataObject.CrystalChargePercent).ToString() + "%");
 
         //set bar
         CrystalChargeBarFill.transform.localScale = new Vector3(Mathf.Clamp01(DataManager.Instance.LevelDataObject.CrystalChargePercent / 100.0f), 1.0f, 1.0f);

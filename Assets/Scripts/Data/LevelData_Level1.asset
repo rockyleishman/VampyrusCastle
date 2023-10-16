@@ -15,5 +15,6 @@ MonoBehaviour:
   BasicEnemyPrefab: {fileID: 814623844818515178, guid: 1de8e904046b21c4cad8e188f0cf24a7,
     type: 3}
   RangedEnemyPrefab: {fileID: 0}
-  BruteEnemyPrefab: {fileID: 0}
+  BruteEnemyPrefab: {fileID: 814623844818515178, guid: bdfd699a43321af41b799a7953f018b9,
+    type: 3}
   VisualMaxCandy: 100

@@ -30,7 +30,7 @@ public class EnemyAIController : DestructableObject
     private float _collisionCooldownTimer;
     private bool _isCollisionReady;
 
-    [Header("Events")]
+    [Header("Candy")]
     [SerializeField] public int MinCandyDropped = 1;
     [SerializeField] public int MaxCandyDropped = 3;
 

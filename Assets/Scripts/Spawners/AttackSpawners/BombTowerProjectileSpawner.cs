@@ -5,7 +5,8 @@ using UnityEngine;
 public class BombTowerProjectileSpawner : AttackSpawner
 {
     [SerializeField] public FriendlyExplosiveProjectile BombTowerProjectile;
-    [SerializeField] public float Damage = 10.0f;
+    [SerializeField] public float DirectDamage = 10.0f;
+    [SerializeField] public float AreaDamage = 5.0f;
     [SerializeField] public float Radius = 1.5f;
     [SerializeField] public float ProjectileSpeed = 10.0f;
     [SerializeField] public float KnockbackDistance = 1.0f;
@@ -15,6 +16,6 @@ public class BombTowerProjectileSpawner : AttackSpawner
     {
         //spawn projectile
         FriendlyExplosiveProjectile projectile = (FriendlyExplosiveProjectile)PoolManager.Instance.Spawn(BombTowerProjectile.name, attackOrigin, Quaternion.LookRotation(Vector3.forward, -attackDirection));
-        projectile.Init(Damage, Radius, Vector3.Distance(attackOrigin, attackTarget.transform.position), ProjectileSpeed, KnockbackDistance, KnockbackVelocity);
+        projectile.Init(DirectDamage, AreaDamage, Radius, Vector3.Distance(attackOrigin, attackTarget.transform.position), ProjectileSpeed, KnockbackDistance, KnockbackVelocity);
     }
 }
