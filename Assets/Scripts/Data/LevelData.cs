@@ -21,6 +21,7 @@ public class LevelData : ScriptableObject
     [SerializeField] public int VisualMaxCandy = 100;
 
     internal PathPoint[] PathPoints;
+    internal CrystalController Crystal;
     internal float TimeSinceCrystalStart;
     internal float CrystalChargePercent;
 }

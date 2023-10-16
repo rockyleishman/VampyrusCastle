@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemyState
+{
+    FollowPath,
+    AttackTarget
+}
+
 public class EnemyAIController : DestructableObject
 {
     [Header("Movement")]
@@ -9,6 +15,12 @@ public class EnemyAIController : DestructableObject
     private int _enemyDirection;
     [SerializeField] public float PathPointReachedRadius = 1.0f;
     private PathPoint _currentPathPoint;
+    private DestructableObject _currentTarget;
+
+    [Header("Targeting")]
+    [SerializeField] public float PlayerDetectionRange = 6.0f;
+    [SerializeField] public float PlayerChaseRange = 9.0f;
+    [SerializeField] public float AverageTimeBeforeScanningForTarget = 15.0f;
 
     [Header("Player Collision")]
     [SerializeField] public float CollisionDamage = 5.0f;
@@ -25,6 +37,7 @@ public class EnemyAIController : DestructableObject
     [Header("Events")]
     [SerializeField] public GameEvent CandySpawnEvent;
 
+    private EnemyState _state;
     private Animator _animator;
 
     protected override void Start()
@@ -34,6 +47,8 @@ public class EnemyAIController : DestructableObject
         _collisionCooldownTimer = 0.0f;
         _isCollisionReady = true;
 
+        _state = EnemyState.FollowPath;
+
         _animator = GetComponent<Animator>();
     }
 
@@ -41,7 +56,23 @@ public class EnemyAIController : DestructableObject
     {
         base.Update();
 
-        FollowPath();
+        switch (_state)
+        {
+            case EnemyState.AttackTarget:
+                AttackTarget();
+                break;
+
+            case EnemyState.FollowPath:
+            default:
+                FollowPath();
+                break;
+        }
+
+        //chance to scan for player
+        if (Random.Range(0.0f, AverageTimeBeforeScanningForTarget / Time.deltaTime) <= 1.0f)
+        {
+            DetectPlayer();
+        }
 
         //update collision readiness
         _collisionCooldownTimer -= Time.deltaTime * SpeedMultiplier;
@@ -80,7 +111,8 @@ public class EnemyAIController : DestructableObject
         {
             if (_currentPathPoint.IsPathEnd)
             {
-                //TODO: attack crystal
+                _currentTarget = DataManager.Instance.LevelDataObject.Crystal;
+                _state = EnemyState.AttackTarget;
             }
             else
             {
@@ -150,18 +182,47 @@ public class EnemyAIController : DestructableObject
         }
     }
 
+    private void DetectPlayer()
+    {
+        if (Vector3.Distance(transform.position, DataManager.Instance.PlayerDataObject.Player.transform.position) <= PlayerDetectionRange)
+        {
+            _currentTarget = DataManager.Instance.PlayerDataObject.Player;
+            _state = EnemyState.AttackTarget;
+        }
+    }
+
+    private void AttackTarget()
+    {
+        //check if player is in range
+        if (_currentTarget is PlayerController && Vector3.Distance(transform.position, DataManager.Instance.PlayerDataObject.Player.transform.position) > PlayerChaseRange)
+        {
+            _state = EnemyState.FollowPath;
+        }
+
+        //move towards target
+        Vector3 moveDirection = (_currentTarget.transform.position - transform.position).normalized;
+        transform.Translate(moveDirection * (MovementSpeed * Time.deltaTime * SpeedMultiplier));
+    }
+
     //collision effects
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (CollisionDamage > 0.0f && _isCollisionReady)
         {
             PlayerController player = collision.collider?.GetComponent<PlayerController>();
+            CrystalController crystal = collision.collider?.GetComponent<CrystalController>();
 
             if (player != null)
             {
                 player.DamageHP(CollisionDamage);
                 player.Knockback((player.transform.position - transform.position).normalized * CollisionKnockbackDistance, CollisionKnockbackDistance / CollisionKnockbackVelocity);
                 player.ActivateIFrames();
+                _collisionCooldownTimer = CollisionCooldown;
+            }
+            else if (crystal != null)
+            {
+                crystal.DamageHP(CollisionDamage);
+                crystal.ActivateIFrames();
                 _collisionCooldownTimer = CollisionCooldown;
             }
         }

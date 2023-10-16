@@ -215,7 +215,7 @@ public class PlayerController : DestructableObject
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            CrystalStartEvent.TriggerEvent(transform.position);
+            CrystalStartEvent.TriggerEvent(DataManager.Instance.LevelDataObject.Crystal.transform.position);
         }
     }
 
