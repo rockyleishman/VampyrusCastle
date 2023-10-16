@@ -29,6 +29,9 @@ public class GameManager : Singleton<GameManager>
     {
         //set candy to 0
         DataManager.Instance.PlayerDataObject.Candy = 0;
+
+        //set time since crystal start to negative to prevent premature spawns
+        DataManager.Instance.LevelDataObject.TimeSinceCrystalStart = -1.0f;
     }
 
     public void AddCandy(int candy)

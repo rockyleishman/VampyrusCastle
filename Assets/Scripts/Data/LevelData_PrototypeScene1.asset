@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff971097b073633478c5a59e086e6978, type: 3}
   m_Name: LevelData_PrototypeScene1
   m_EditorClassIdentifier: 
+  BasicEnemyPrefab: {fileID: 814623844818515178, guid: 1de8e904046b21c4cad8e188f0cf24a7,
+    type: 3}
+  RangedEnemyPrefab: {fileID: 0}
+  BruteEnemyPrefab: {fileID: 0}
+  VisualMaxCandy: 100
