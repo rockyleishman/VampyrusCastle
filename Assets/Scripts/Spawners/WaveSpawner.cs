@@ -51,11 +51,23 @@ public class WaveSpawner : MonoBehaviour
                     PoolManager.Instance.Spawn(DataManager.Instance.LevelDataObject.BasicEnemyPrefab.name, transform.position, transform.rotation);
                     break;
 
-                case EnemyType.Ranged:
-                    PoolManager.Instance.Spawn(DataManager.Instance.LevelDataObject.RangedEnemyPrefab.name, transform.position, transform.rotation);
+                case EnemyType.BasicAlt1:
+                    PoolManager.Instance.Spawn(DataManager.Instance.LevelDataObject.BasicEnemyPrefab.name, transform.position, transform.rotation);
+                    break;
+
+                case EnemyType.BasicAlt2:
+                    PoolManager.Instance.Spawn(DataManager.Instance.LevelDataObject.BasicEnemyPrefab.name, transform.position, transform.rotation);
                     break;
 
                 case EnemyType.Brute:
+                    PoolManager.Instance.Spawn(DataManager.Instance.LevelDataObject.BruteEnemyPrefab.name, transform.position, transform.rotation);
+                    break;
+
+                case EnemyType.BruteAlt1:
+                    PoolManager.Instance.Spawn(DataManager.Instance.LevelDataObject.BruteEnemyPrefab.name, transform.position, transform.rotation);
+                    break;
+
+                case EnemyType.BruteAlt2:
                     PoolManager.Instance.Spawn(DataManager.Instance.LevelDataObject.BruteEnemyPrefab.name, transform.position, transform.rotation);
                     break;
 
