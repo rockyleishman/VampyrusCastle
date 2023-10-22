@@ -50,13 +50,6 @@ MonoBehaviour:
   DemolishHotKey: 8
   HotKeysByLevel1TowerIndex: 31000000
   HotKeysByLevel2TowerIndex: 310000003200000033000000
-  ShowLevel0BuildMenu: {fileID: 11400000, guid: b9158ef7f41fa6749a6f619bf792f4e8,
-    type: 2}
-  ShowLevel1BuildMenu: {fileID: 11400000, guid: af78d39f40720204ea08f0c245878cf8,
-    type: 2}
-  ShowLevel2BuildMenu: {fileID: 11400000, guid: cb505798818dc0546b3423a470f2509b,
-    type: 2}
-  HideBuildMenus: {fileID: 11400000, guid: 217db57dcff29be40b89744fd6db02ea, type: 2}
 --- !u!1001 &704305562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72,12 +65,12 @@ PrefabInstance:
     - target: {fileID: 9125451269589711696, guid: 626bb6ea438b25a499c4282074e5d191,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.91
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 9125451269589711696, guid: 626bb6ea438b25a499c4282074e5d191,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.05
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 9125451269589711696, guid: 626bb6ea438b25a499c4282074e5d191,
         type: 3}
@@ -152,12 +145,12 @@ PrefabInstance:
     - target: {fileID: 9125451269589711696, guid: 626bb6ea438b25a499c4282074e5d191,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.52
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9125451269589711696, guid: 626bb6ea438b25a499c4282074e5d191,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.48
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9125451269589711696, guid: 626bb6ea438b25a499c4282074e5d191,
         type: 3}

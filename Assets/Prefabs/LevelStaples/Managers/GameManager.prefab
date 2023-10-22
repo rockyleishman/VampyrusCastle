@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxDistanceFromSource: 1
   CandyPrefabs:
-  - {fileID: 4209315822674972988, guid: 993c84de810daee4d9603e86e131299b, type: 3}
+  - {fileID: 4209315822674972988, guid: dd1cc39e973a5334985dbe4578744b45, type: 3}
 --- !u!1 &6968284092805897657
 GameObject:
   m_ObjectHideFlags: 0

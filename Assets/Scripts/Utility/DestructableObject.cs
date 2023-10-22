@@ -20,8 +20,20 @@ public abstract class DestructableObject : PoolObject
     internal float SpeedMultiplier;
     internal float HealingPerSecond;
 
+    //renderer stuff
+    private SpriteRenderer spriteRenderer;
+    private Color defaultColor;
+
     protected virtual void Start()
     {
+        //get renderer stuff
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            defaultColor = spriteRenderer.material.color;
+        }
+
+        //initialize
         Init();
     }
 
@@ -29,6 +41,11 @@ public abstract class DestructableObject : PoolObject
     {
         InitHP();
         InitStatuses();
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.material.color = defaultColor;
+        }
     }
 
     protected virtual void InitHP()
@@ -112,14 +129,13 @@ public abstract class DestructableObject : PoolObject
 
     private IEnumerator FlashEffect()
     {
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        if (renderer != null)
+        if (spriteRenderer != null)
         {
-            renderer.material.color *= k_flashColorMultiplier;
+            spriteRenderer.material.color *= k_flashColorMultiplier;
 
             yield return new WaitForSeconds(k_flashTime);
 
-            renderer.material.color /= k_flashColorMultiplier;
+            spriteRenderer.material.color /= k_flashColorMultiplier;
         }        
     }
 }

@@ -112,7 +112,6 @@ public class WaveManager : Singleton<WaveManager>
 
     public void StartSpawningWaves()
     {
-        Debug.Log("aerg");
         IsSpawningStarted = true;
     }
 

@@ -67,13 +67,13 @@ public class LevelDataEditor : Editor
             EditorGUILayout.BeginHorizontal();
             if (i < data.WaveCount - 1)
             {
-                EditorGUILayout.LabelField("Wave " + (i + 1), EditorStyles.boldLabel, GUILayout.Width(120));
-                EditorGUILayout.LabelField("Time Limit (s):", GUILayout.Width(120));
+                EditorGUILayout.LabelField("Wave " + (i + 1), EditorStyles.boldLabel, GUILayout.Width(180));
+                EditorGUILayout.LabelField("Time Limit (s):", GUILayout.Width(90));
                 data.WaveTimeLimits[i] = EditorGUILayout.FloatField(data.WaveTimeLimits[i]);
             }
             else
             {
-                EditorGUILayout.LabelField("Wave " + (i + 1) + " (Final)", EditorStyles.boldLabel, GUILayout.Width(120));
+                EditorGUILayout.LabelField("Wave " + (i + 1) + " (Final)", EditorStyles.boldLabel, GUILayout.Width(180));
                 EditorGUILayout.LabelField("No Time Limit");
             }
             EditorGUILayout.EndHorizontal();
@@ -82,10 +82,10 @@ public class LevelDataEditor : Editor
             for (int j = 0; j < data.SpawnLocations.Length; j++)
             {
                 EditorGUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField("Location " + j + " (" + data.SpawnLocations[j].x + ", " + data.SpawnLocations[j].y + ")", GUILayout.Width(120));
-                EditorGUILayout.LabelField("Enemy Count:", GUILayout.Width(120));
+                EditorGUILayout.LabelField("Location " + j + " (" + data.SpawnLocations[j].x + ", " + data.SpawnLocations[j].y + ")", GUILayout.Width(180));
+                EditorGUILayout.LabelField("Enemy Count:", GUILayout.Width(90));
                 data.EnemyCounts[i, j] = EditorGUILayout.IntField(data.EnemyCounts[i, j], GUILayout.Width(60));
-                EditorGUILayout.LabelField("Spacing (s):", GUILayout.Width(120));
+                EditorGUILayout.LabelField("Spacing (s):", GUILayout.Width(90));
                 data.SpacingTimes[i, j] = EditorGUILayout.FloatField(data.SpacingTimes[i, j], GUILayout.Width(60));
                 EditorGUILayout.EndHorizontal();
 
@@ -93,8 +93,8 @@ public class LevelDataEditor : Editor
                 for (int k = 0; k < data.EnemyCounts[i, j]; k++)
                 {
                     EditorGUILayout.BeginHorizontal();
-                    EditorGUILayout.LabelField("", GUILayout.Width(120));
-                    EditorGUILayout.LabelField("Enemy " + (k + 1) + ":", EditorStyles.miniLabel, GUILayout.Width(120));
+                    EditorGUILayout.LabelField("", GUILayout.Width(180));
+                    EditorGUILayout.LabelField("Enemy " + (k + 1) + ":", EditorStyles.miniLabel, GUILayout.Width(90));
                     data.Enemies[i, j, k] = (EnemyType)EditorGUILayout.EnumPopup(data.Enemies[i, j, k]);
                     EditorGUILayout.EndHorizontal();
                 }
