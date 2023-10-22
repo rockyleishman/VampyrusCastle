@@ -241,6 +241,16 @@ public class EnemyAIController : DestructableObject
         }
     }
 
+    public override void DamageHP(float hp)
+    {
+        base.DamageHP(hp);
+
+        if (_iFrameTimeLeft <= 0.0f)
+        {
+            DataManager.Instance.EventDataObject.EnemyDamage.TriggerEvent(transform.position);
+        }
+    }
+
     protected override void DestroyObject()
     {
         //spawn candy
@@ -248,8 +258,11 @@ public class EnemyAIController : DestructableObject
 
         for (int i = 0; i < candyAmount; i++)
         {
-            CandySpawnEvent.TriggerEvent(transform.position);
+            DataManager.Instance.EventDataObject.CandySpawn.TriggerEvent(transform.position);
         }
+
+        //death event
+        DataManager.Instance.EventDataObject.EnemyDeath.TriggerEvent(transform.position);
 
         //despawn
         OnDespawn();

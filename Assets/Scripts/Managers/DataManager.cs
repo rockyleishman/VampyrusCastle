@@ -5,5 +5,6 @@ using UnityEngine;
 public class DataManager : Singleton<DataManager>
 {
     [SerializeField] public LevelData LevelDataObject;
+    [SerializeField] public EventData EventDataObject;
     [SerializeField] public PlayerData PlayerDataObject;
 }

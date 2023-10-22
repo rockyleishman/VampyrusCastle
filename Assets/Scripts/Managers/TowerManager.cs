@@ -15,12 +15,6 @@ public class TowerManager : Singleton<TowerManager>
     [SerializeField] public KeyCode[] HotKeysByLevel1TowerIndex;
     [SerializeField] public KeyCode[] HotKeysByLevel2TowerIndex;
 
-    [Header("Events")]
-    [SerializeField] public GameEvent ShowLevel0BuildMenu;
-    [SerializeField] public GameEvent ShowLevel1BuildMenu;
-    [SerializeField] public GameEvent ShowLevel2BuildMenu;
-    [SerializeField] public GameEvent HideBuildMenus;
-
     private void Start()
     {
         //init tower nodes
@@ -70,17 +64,17 @@ public class TowerManager : Singleton<TowerManager>
             switch (_currentNode.ActiveTowerLevel)
             {
                 case 0:
-                    ShowLevel0BuildMenu.TriggerEvent(_currentNode.transform.position);
+                    DataManager.Instance.EventDataObject.BuildMenuLevel0Show.TriggerEvent(_currentNode.transform.position);
                     Debug.Log(string.Format("BUILD MODE: [{0}] - {1}", HotKeysByLevel1TowerIndex[0], _currentNode.Level1Towers[0].name));
                     break;
 
                 case 1:
-                    ShowLevel1BuildMenu.TriggerEvent(_currentNode.transform.position);
+                    DataManager.Instance.EventDataObject.BuildMenuLevel1Show.TriggerEvent(_currentNode.transform.position);
                     Debug.Log(string.Format("BUILD MODE: [{0}] - {1}   |||   [{2}] - {3}   |||   [{4}] - {5}   |||   [{6}] - Demolish Tower", HotKeysByLevel2TowerIndex[0], _currentNode.Level2Towers[0].name, HotKeysByLevel2TowerIndex[1], _currentNode.Level2Towers[1].name, HotKeysByLevel2TowerIndex[2], _currentNode.Level2Towers[2].name, DemolishHotKey));
                     break;
 
                 case 2:
-                    ShowLevel2BuildMenu.TriggerEvent(_currentNode.transform.position);
+                    DataManager.Instance.EventDataObject.BuildMenuLevel2Show.TriggerEvent(_currentNode.transform.position);
                     Debug.Log(string.Format("BUILD MODE: [{0}] - Demolish Tower", DemolishHotKey));
                     break;
 
@@ -99,7 +93,7 @@ public class TowerManager : Singleton<TowerManager>
         //TODO: unhighlight targetnode's towers
 
         //hide build menu UI
-        HideBuildMenus.TriggerEvent(_currentNode.transform.position);
+        DataManager.Instance.EventDataObject.BuildMenuHide.TriggerEvent(_currentNode.transform.position);
         Debug.Log("BUILD MODE CLOSED");
     }
 

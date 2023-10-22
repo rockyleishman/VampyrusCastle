@@ -4,21 +4,14 @@ using UnityEngine;
 
 public class PlayerController : DestructableObject
 {
-    [Header("Movement")]
-    [SerializeField] public float MovementSpeed = 5.0f;
-    [SerializeField][Range(0.0f, 0.1f)] public float TimeToChangeDirection = 0.05f;
+    [Header("Player Settings")]
+    [SerializeField] [Range(0.0f, 20.0f)] public float MovementSpeed = 5.0f;
+    [SerializeField] [Range(0.0f, 0.1f)] public float TimeToChangeDirection = 0.05f;
+    [SerializeField] [Range(0.0f, 20.0f)] public float MaxAttackSpeed = 5.0f;
+    private float _attackCooldownTimer;
     private int _inputDirection;
     private float _inputDirectionTime;
     private int _playerDirection;
-
-    [Header("Events")]
-    [SerializeField] public AttackEvent PlayerAttackEvent;
-    [SerializeField] public GameEvent PlayerDamageEvent;
-    [SerializeField] public GameEvent PlayerHealEvent;
-    [SerializeField] public GameEvent PlayerDeathEvent;
-    [SerializeField] public GameEvent BuildModeEnter;
-    [SerializeField] public GameEvent BuildModeExit;
-    [SerializeField] public GameEvent CrystalStartEvent;
 
     private Animator _animator;
 
@@ -28,6 +21,9 @@ public class PlayerController : DestructableObject
 
         //set player reference in player data
         DataManager.Instance.PlayerDataObject.Player = this;
+
+        //init attack cooldown timer
+        _attackCooldownTimer = 0.0f;
 
         //init direction variables
         _inputDirection = 0;
@@ -45,7 +41,7 @@ public class PlayerController : DestructableObject
         Movement();
         Attack();
         BuildMode();
-        ActivateCrystal();
+        CallWave();
     }
 
     private void Movement()
@@ -142,7 +138,9 @@ public class PlayerController : DestructableObject
 
     private void Attack()
     {
-        if (Input.GetButtonDown("Fire1"))
+        _attackCooldownTimer -= Time.deltaTime;
+
+        if (Input.GetButtonDown("Fire1") && _attackCooldownTimer <= 0.0f)
         {
             //determine attack rotation
             Vector3 attackDirection;
@@ -190,7 +188,10 @@ public class PlayerController : DestructableObject
             }
 
             //trigger attack event
-            PlayerAttackEvent.TriggerEvent(transform.position, attackDirection, null);
+            DataManager.Instance.EventDataObject.PlayerAttack.TriggerEvent(transform.position, attackDirection, null);
+
+            //reset cooldown
+            _attackCooldownTimer = 1.0f / MaxAttackSpeed;
         }
     }
 
@@ -201,21 +202,28 @@ public class PlayerController : DestructableObject
             if (TowerManager.Instance.IsInBuildMode)
             {
                 //exit build mode
-                BuildModeExit.TriggerEvent(transform.position);
+                DataManager.Instance.EventDataObject.BuildModeExit.TriggerEvent(transform.position);
             }
             else
             {
                 //enter build mode
-                BuildModeEnter.TriggerEvent(transform.position);
+                DataManager.Instance.EventDataObject.BuildModeEnter.TriggerEvent(transform.position);
             }
         }        
     }
 
-    private void ActivateCrystal()
+    private void CallWave()
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            CrystalStartEvent.TriggerEvent(DataManager.Instance.LevelDataObject.Crystal.transform.position);
+            if (!WaveManager.Instance.IsSpawningStarted)
+            {
+                DataManager.Instance.EventDataObject.WaveStart.TriggerEvent(DataManager.Instance.LevelDataObject.Crystal.transform.position);
+            }
+            else if (!WaveManager.Instance.IsSpawningCompleted)
+            {
+                DataManager.Instance.EventDataObject.WaveNext.TriggerEvent(DataManager.Instance.LevelDataObject.Crystal.transform.position);
+            }
         }
     }
 
@@ -233,7 +241,7 @@ public class PlayerController : DestructableObject
 
         DataManager.Instance.PlayerDataObject.CurrentHP = _currentHP;
 
-        PlayerDamageEvent.TriggerEvent(transform.position);
+        DataManager.Instance.EventDataObject.PlayerDamage.TriggerEvent(transform.position);
     }
 
     public override void HealHP(float hp)
@@ -242,12 +250,12 @@ public class PlayerController : DestructableObject
 
         DataManager.Instance.PlayerDataObject.CurrentHP = _currentHP;
 
-        PlayerHealEvent.TriggerEvent(transform.position);
+        DataManager.Instance.EventDataObject.PlayerHeal.TriggerEvent(transform.position);
     }
 
     protected override void DestroyObject()
     {
-        PlayerDeathEvent.TriggerEvent(transform.position);
+        DataManager.Instance.EventDataObject.PlayerDeath.TriggerEvent(transform.position);
 
         Debug.Log("GAME OVER (Player Dead)");
     }

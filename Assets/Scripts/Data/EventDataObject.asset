@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400a754e6ddb7244e94f0c98edcc2e8e, type: 3}
+  m_Name: EventDataObject
+  m_EditorClassIdentifier: 
+  PlayerAttack: {fileID: 11400000, guid: d8d6606695da7954aa1ae3b03aefe24b, type: 2}
+  BasicTowerAttack: {fileID: 11400000, guid: 0392ca8d9c70fe442af12048beae99d3, type: 2}
+  BombTowerAttack: {fileID: 11400000, guid: fd315b7b342197c4ab384d6a57373f56, type: 2}
+  CandySpawn: {fileID: 11400000, guid: 49b617f849356c446ad454c648cf00a8, type: 2}
+  CandyCollect: {fileID: 11400000, guid: 4e5151139b678bb459aa598a4fd785e0, type: 2}
+  WaveStart: {fileID: 11400000, guid: 1a0d12c3c2bd74e4788c507ff82838b0, type: 2}
+  WaveNext: {fileID: 11400000, guid: 3ee36715248121c42a26ce5dfa4d84f2, type: 2}
+  CrystalFinish: {fileID: 11400000, guid: 94bd62d9257691a4ba31b6d34404dc0e, type: 2}
+  CrystalDamage: {fileID: 11400000, guid: 4df4f74255ed9d147a9ba4c33b8c2cc8, type: 2}
+  CrystalDeath: {fileID: 11400000, guid: bbf658c850f584d4594258538ec6c4d1, type: 2}
+  PlayerDamage: {fileID: 11400000, guid: 4801f5a1d7dda8941870fe5cd5828c25, type: 2}
+  PlayerHeal: {fileID: 11400000, guid: 5a0909528765993418294ca030d62e0f, type: 2}
+  PlayerDeath: {fileID: 11400000, guid: 66df9bf1af9044b458393682418e1564, type: 2}
+  EnemyDamage: {fileID: 11400000, guid: 3376f7999a77b7246bfc7213d078c2fe, type: 2}
+  EnemyDeath: {fileID: 11400000, guid: ef8a5dbb3ad7394459c5f2e5a6b9f7e4, type: 2}
+  SpawnEnemyBasic: {fileID: 11400000, guid: dc91555394ccc6c418f0477ce14b1418, type: 2}
+  SpawnEnemyBasicAlt1: {fileID: 11400000, guid: 67422fa1c2751c84994b5f3f1ecbb52e,
+    type: 2}
+  SpawnEnemyBasicAlt2: {fileID: 11400000, guid: 1797b1e6747739243b14a5c16082683d,
+    type: 2}
+  SpawnEnemyBrute: {fileID: 11400000, guid: 96a0055e4b4af5c458ddddb6ebf74a32, type: 2}
+  SpawnEnemyBruteAlt1: {fileID: 11400000, guid: 84dc2dfd5fbf82541a92750c4545e2e5,
+    type: 2}
+  SpawnEnemyBruteAlt2: {fileID: 11400000, guid: a4430e4900733654797d5af9d7b21c98,
+    type: 2}
+  GamePause: {fileID: 11400000, guid: 7d7f4d63f14539841876747be14689fe, type: 2}
+  GameResume: {fileID: 11400000, guid: 2c621daccfb2c2349ac01ba370eca464, type: 2}
+  BuildModeEnter: {fileID: 11400000, guid: 50b9097aed5f6134b8549c15a232aee4, type: 2}
+  BuildModeExit: {fileID: 11400000, guid: 44a86ec1604014e4b91302c99fb51a23, type: 2}
+  BuildMenuLevel0Show: {fileID: 11400000, guid: b9158ef7f41fa6749a6f619bf792f4e8,
+    type: 2}
+  BuildMenuLevel1Show: {fileID: 11400000, guid: af78d39f40720204ea08f0c245878cf8,
+    type: 2}
+  BuildMenuLevel2Show: {fileID: 11400000, guid: cb505798818dc0546b3423a470f2509b,
+    type: 2}
+  BuildMenuHide: {fileID: 11400000, guid: 217db57dcff29be40b89744fd6db02ea, type: 2}

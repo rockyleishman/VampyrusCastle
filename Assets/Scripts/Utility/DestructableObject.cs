@@ -12,7 +12,9 @@ public abstract class DestructableObject : PoolObject
     private Vector3 _knockbackRemaining;
     private float _knockbackTimeRemaining;
     [SerializeField] public float IFramesTime = 0.5f;
-    private float _iFrameTimeLeft;
+    protected float _iFrameTimeLeft;
+    private const float k_flashTime = 0.1f;
+    private const float k_flashColorMultiplier = 2.0f;
 
     //status variables
     internal float SpeedMultiplier;
@@ -66,6 +68,10 @@ public abstract class DestructableObject : PoolObject
         {
             _currentHP -= hp;
 
+            //flash effect
+            StartCoroutine(FlashEffect());
+
+            //destroy if 0 HP
             if (_currentHP <= 0.0f)
             {
                 _currentHP = 0.0f;
@@ -103,4 +109,17 @@ public abstract class DestructableObject : PoolObject
     }
 
     protected abstract void DestroyObject();
+
+    private IEnumerator FlashEffect()
+    {
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        if (renderer != null)
+        {
+            renderer.material.color *= k_flashColorMultiplier;
+
+            yield return new WaitForSeconds(k_flashTime);
+
+            renderer.material.color /= k_flashColorMultiplier;
+        }        
+    }
 }

@@ -13,11 +13,6 @@ public class CrystalController : DestructableObject
     private bool _isCharging;
     private bool _isFinished;
 
-    [Header("Events")]
-    [SerializeField] public GameEvent CrystalEndEvent;
-    [SerializeField] public GameEvent CrystalDamagedEvent;
-    [SerializeField] public GameEvent CrystalDestroyedEvent;    
-
     protected override void Start()
     {
         base.Start();
@@ -61,7 +56,7 @@ public class CrystalController : DestructableObject
                 _isFinished = true;
 
                 //trigger end event
-                CrystalEndEvent.TriggerEvent(transform.position);
+                DataManager.Instance.EventDataObject.CrystalFinish.TriggerEvent(transform.position);
 
                 Debug.Log("The crystal has fully charged! Gate opened/level complete!");
             }
@@ -72,12 +67,15 @@ public class CrystalController : DestructableObject
     {
         base.DamageHP(hp);
 
-        CrystalDamagedEvent.TriggerEvent(transform.position);
+        if (_iFrameTimeLeft <= 0.0f)
+        {
+            DataManager.Instance.EventDataObject.CrystalDamage.TriggerEvent(transform.position);
+        }
     }
 
     protected override void DestroyObject()
     {
-        CrystalDestroyedEvent.TriggerEvent(transform.position);
+        DataManager.Instance.EventDataObject.CrystalDeath.TriggerEvent(transform.position);
 
         Debug.Log("GAME OVER (Crystal Destroyed)");
     }
