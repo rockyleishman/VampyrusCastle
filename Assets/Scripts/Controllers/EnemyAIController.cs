@@ -138,8 +138,6 @@ public class EnemyAIController : DestructableObject
         transform.Translate(moveDirection * (MovementSpeed * Time.deltaTime * SpeedMultiplier));
 
         //change enemy direction
-        int lastDirection = _enemyDirection;
-
         if (moveDirection.y < -Mathf.Cos(Mathf.PI/8))
         {
             //south
@@ -188,11 +186,8 @@ public class EnemyAIController : DestructableObject
         }
 
         //apply animation
-        if (lastDirection != _enemyDirection)
-        {
-            _animator.SetInteger("EnemyDirection", _enemyDirection);
-            _animator.SetTrigger("ChangeDirection");
-        }
+        _animator.SetFloat("HorizontalVelocity", moveDirection.x);
+        _animator.SetBool("IsMoving", moveDirection != Vector3.zero);
     }
 
     private void DetectPlayer()
