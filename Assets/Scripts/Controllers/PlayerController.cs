@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : DestructableObject
@@ -197,7 +195,7 @@ public class PlayerController : DestructableObject
 
     private void BuildMode()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Fire2"))
         {
             if (TowerManager.Instance.IsInBuildMode)
             {
@@ -214,7 +212,7 @@ public class PlayerController : DestructableObject
 
     private void CallWave()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetButtonDown("Jump"))
         {
             if (!WaveManager.Instance.IsSpawningStarted)
             {
