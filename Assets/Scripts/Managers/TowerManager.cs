@@ -57,7 +57,7 @@ public class TowerManager : Singleton<TowerManager>
         {
             //start build mode
             IsInBuildMode = true;
-
+            
             //TODO: highlight targetnode's towers
 
             //open build menu UI
