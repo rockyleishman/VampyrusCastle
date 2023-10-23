@@ -237,6 +237,7 @@ Transform:
   - {fileID: 3554794843622107977}
   - {fileID: 2342857133824024655}
   - {fileID: 8639655759756612775}
+  - {fileID: 5921533742419266602}
   m_Father: {fileID: 3554794842007120864}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1114,6 +1115,62 @@ MonoBehaviour:
   MaxDistanceFromSource: 1
   CandyPrefabs:
   - {fileID: 4209315822674972988, guid: dd1cc39e973a5334985dbe4578744b45, type: 3}
+--- !u!1 &6797980985403403740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5921533742419266602}
+  - component: {fileID: 2283152618860274685}
+  m_Layer: 0
+  m_Name: EffectSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5921533742419266602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6797980985403403740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3554794841737853887}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2283152618860274685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6797980985403403740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e706229f49fd48469c711539e896927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerHitEffect: {fileID: -7005016319542478572, guid: 0779afa93a2643e4d81eb851416b5e74,
+    type: 3}
+  PlayerDeathEffect: {fileID: -7005016319542478572, guid: eac451c39c137fa419661b9babb808a1,
+    type: 3}
+  CrystalHitEffect: {fileID: -7005016319542478572, guid: 7cbbc62018fa6a84c89b9659aa283edf,
+    type: 3}
+  CrystalDeathEffect: {fileID: -7005016319542478572, guid: 3c3d2e91d95f2b04d94a75582bc28c2c,
+    type: 3}
+  EnemyHitEffect: {fileID: -7005016319542478572, guid: a49e27d5d406149449a7cd95df1dfcb7,
+    type: 3}
+  EnemyDeathEffect: {fileID: -7005016319542478572, guid: abba2d361323f4f46975871b6e4cff16,
+    type: 3}
 --- !u!1 &6968284092805897657
 GameObject:
   m_ObjectHideFlags: 0
