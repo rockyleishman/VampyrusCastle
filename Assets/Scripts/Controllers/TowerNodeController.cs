@@ -51,33 +51,55 @@ public class TowerNodeController : MonoBehaviour
         ActivateTower(0, 0);
     }
 
-    public void ActivateTower(int level, int index)
+    public bool ActivateTower(int level, int index)
     {
-        DeactivateTowers();
+        bool isSuccessful = false;
 
         //set active tower
         if (level == 0)
         {
+            DeactivateTowers();
             ActiveTower = EmptyNode;
             ActiveTowerLevel = 0;
+            isSuccessful = true;
         }
         else if (level == 1)
         {
-            ActiveTower = Level1Towers[index];
-            ActiveTowerLevel = 1;
+            if (DataManager.Instance.PlayerDataObject.Candy >= Level1Towers[index].CandyCost)
+            {
+                DataManager.Instance.PlayerDataObject.Candy -= Level1Towers[index].CandyCost;
+                HUDManager.Instance.UpdateCandy();
+                DeactivateTowers();
+                ActiveTower = Level1Towers[index];
+                ActiveTowerLevel = 1;
+                isSuccessful = true;
+            }
         }
         else if (level == 2)
         {
-            ActiveTower = Level2Towers[index];
-            ActiveTowerLevel = 2;
+            if (DataManager.Instance.PlayerDataObject.Candy >= Level2Towers[index].CandyCost)
+            {
+                DataManager.Instance.PlayerDataObject.Candy -= Level2Towers[index].CandyCost;
+                HUDManager.Instance.UpdateCandy();
+                DeactivateTowers();
+                ActiveTower = Level2Towers[index];
+                ActiveTowerLevel = 2;
+                isSuccessful = true;
+            }
         }
         else
         {
             throw new System.Exception("Tower Level " + level + " does not exist!");
-        }        
+        }
 
         //activate and enable active tower
-        ActiveTower.gameObject.SetActive(true);
-        ActiveTower.enabled = true;
+        if (isSuccessful)
+        {
+            ActiveTower.gameObject.SetActive(true);
+            ActiveTower.enabled = true;
+        }
+
+        //return
+        return isSuccessful;
     }
 }

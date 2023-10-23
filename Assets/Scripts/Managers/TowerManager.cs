@@ -65,12 +65,12 @@ public class TowerManager : Singleton<TowerManager>
             {
                 case 0:
                     DataManager.Instance.EventDataObject.BuildMenuLevel0Show.TriggerEvent(_currentNode.transform.position);
-                    Debug.Log(string.Format("BUILD MODE: [{0}] - {1}", HotKeysByLevel1TowerIndex[0], _currentNode.Level1Towers[0].name));
+                    Debug.Log(string.Format("BUILD MODE: [{0}] - {1} ({2} candy)", HotKeysByLevel1TowerIndex[0], _currentNode.Level1Towers[0].name, _currentNode.Level1Towers[0].CandyCost));
                     break;
 
                 case 1:
                     DataManager.Instance.EventDataObject.BuildMenuLevel1Show.TriggerEvent(_currentNode.transform.position);
-                    Debug.Log(string.Format("BUILD MODE: [{0}] - {1}   |||   [{2}] - {3}   |||   [{4}] - {5}   |||   [{6}] - Demolish Tower", HotKeysByLevel2TowerIndex[0], _currentNode.Level2Towers[0].name, HotKeysByLevel2TowerIndex[1], _currentNode.Level2Towers[1].name, HotKeysByLevel2TowerIndex[2], _currentNode.Level2Towers[2].name, DemolishHotKey));
+                    Debug.Log(string.Format("BUILD MODE: [{0}] - {1} ({2} candy)   |||   [{3}] - {4} ({5} candy)  |||   [{6}] - {7} ({8} candy)  |||   [{9}] - Demolish Tower", HotKeysByLevel2TowerIndex[0], _currentNode.Level2Towers[0].name, _currentNode.Level2Towers[0].CandyCost, HotKeysByLevel2TowerIndex[1], _currentNode.Level2Towers[1].name, _currentNode.Level2Towers[1].CandyCost, HotKeysByLevel2TowerIndex[2], _currentNode.Level2Towers[2].name, _currentNode.Level2Towers[2].CandyCost, DemolishHotKey));
                     break;
 
                 case 2:
@@ -107,8 +107,12 @@ public class TowerManager : Singleton<TowerManager>
                 {
                     if (Input.GetKeyDown(HotKeysByLevel1TowerIndex[i]))
                     {
-                        _currentNode?.ActivateTower(1, i);
-                        ExitBuildMode();
+                        //attempt build
+                        if (_currentNode.ActivateTower(1, i))
+                        {
+                            //exit build mode if successful
+                            ExitBuildMode();
+                        }
                     }
                 }
                 break;
@@ -118,8 +122,12 @@ public class TowerManager : Singleton<TowerManager>
                 {
                     if (Input.GetKeyDown(HotKeysByLevel2TowerIndex[i]))
                     {
-                        _currentNode?.ActivateTower(2, i);
-                        ExitBuildMode();
+                        //attempt build
+                        if (_currentNode.ActivateTower(2, i))
+                        {
+                            //exit build mode if successful
+                            ExitBuildMode();
+                        }
                     }
                 }
                 break;
