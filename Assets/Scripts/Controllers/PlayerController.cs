@@ -207,7 +207,10 @@ public class PlayerController : DestructableObject
 
         DataManager.Instance.PlayerDataObject.CurrentHP = _currentHP;
 
-        DataManager.Instance.EventDataObject.PlayerDamage.TriggerEvent(transform.position);
+        if (_iFrameTimeLeft <= 0.0f)
+        {
+            DataManager.Instance.EventDataObject.PlayerDamage.TriggerEvent(transform.position);
+        }
     }
 
     public override void HealHP(float hp)

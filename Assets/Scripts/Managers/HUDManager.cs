@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,37 +6,74 @@ public class HUDManager : Singleton<HUDManager>
 {
     [Header("Groups")]
     [SerializeField] public GameObject HPGroup;
+    [SerializeField] public GameObject CrystalHPGroup;
     [SerializeField] public GameObject CandyGroup;
-    [SerializeField] public GameObject CrystalChargeGroup;
+    [SerializeField] public GameObject WaveGroup;
+    [SerializeField] public GameObject TimeGroup;
+    [SerializeField] public GameObject EnemiesGroup;
 
     [Header("Text Fields")]
     [SerializeField] public TextMeshProUGUI HPField;
+    [SerializeField] public TextMeshProUGUI CrystalHPField;
     [SerializeField] public TextMeshProUGUI CandyField;
-    [SerializeField] public TextMeshProUGUI CrystalChargeField;
+    [SerializeField] public TextMeshProUGUI WaveField;
+    [SerializeField] public TextMeshProUGUI TimeField;
+    [SerializeField] public TextMeshProUGUI EnemiesField;
 
     [Header("Sliding Bars")]
     [SerializeField] public GameObject HPBarFill;
     [SerializeField] public GameObject[] HPBarEmpty;
+    [SerializeField] public GameObject CrystalHPBarFill;
+    [SerializeField] public GameObject[] CrystalHPBarEmpty;
     [SerializeField] public GameObject CandyBarFill;
     [SerializeField] public GameObject[] CandyBarEmpty;
-    [SerializeField] public GameObject CrystalChargeBarFill;
-    [SerializeField] public GameObject[] CrystalChargeBarEmpty;
+    [SerializeField] public GameObject WaveBar;
+    [SerializeField] public Color WaveBarSignalColour;
+    [SerializeField] public Color WaveBarDefaultColour;
+    [SerializeField] public GameObject TimeBar;
+    [SerializeField] public Color TimeBarSignalColour;
+    [SerializeField] public Color TimeBarDefaultColour;
+    [SerializeField] public GameObject EnemiesBarFill;
+    [SerializeField] public GameObject[] EnemiesBarEmpty;
 
     private void Start()
     {
         ShowHP();
+        ShowCrystalHP();
         ShowCandy();
-        HideCrystalCharge();
+        HideWave();
+        HideTime();
+        HideEnemies();
     }
 
     public void ShowHUD()
     {
-        this.gameObject.SetActive(true);
+        gameObject.SetActive(true);
     }
 
     public void HideHUD()
     {
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+    }
+
+    public void ShowAll()
+    {
+        ShowHP();
+        ShowCrystalHP();
+        ShowCandy();
+        ShowWave();
+        ShowTime();
+        ShowEnemies();
+    }
+
+    public void HideAll()
+    {
+        HideHP();
+        HideCrystalHP();
+        HideCandy();
+        HideWave();
+        HideTime();
+        HideEnemies();
     }
 
     public void ShowHP()
@@ -51,6 +86,16 @@ public class HUDManager : Singleton<HUDManager>
         HPGroup.SetActive(false);
     }
 
+    public void ShowCrystalHP()
+    {
+        CrystalHPGroup.SetActive(true);
+    }
+
+    public void HideCrystalHP()
+    {
+        CrystalHPGroup.SetActive(false);
+    }
+
     public void ShowCandy()
     {
         CandyGroup.SetActive(true);
@@ -61,14 +106,34 @@ public class HUDManager : Singleton<HUDManager>
         CandyGroup.SetActive(false);
     }
 
-    public void ShowCrystalCharge()
+    public void ShowWave()
     {
-        CrystalChargeGroup.SetActive(true);
+        WaveGroup.SetActive(true);
     }
 
-    public void HideCrystalCharge()
+    public void HideWave()
     {
-        CrystalChargeGroup.SetActive(false);
+        WaveGroup.SetActive(false);
+    }
+
+    public void ShowTime()
+    {
+        TimeGroup.SetActive(true);
+    }
+
+    public void HideTime()
+    {
+        TimeGroup.SetActive(false);
+    }
+
+    public void ShowEnemies()
+    {
+        EnemiesGroup.SetActive(true);
+    }
+
+    public void HideEnemies()
+    {
+        EnemiesGroup.SetActive(false);
     }
 
     public void UpdateHP()
@@ -81,6 +146,19 @@ public class HUDManager : Singleton<HUDManager>
         foreach (GameObject barEmpty in HPBarEmpty)
         {
             barEmpty.transform.localScale = new Vector3(Mathf.Clamp01((DataManager.Instance.PlayerDataObject.MaxHP - DataManager.Instance.PlayerDataObject.CurrentHP) / DataManager.Instance.PlayerDataObject.MaxHP), 1.0f, 1.0f);
+        }
+    }
+
+    public void UpdateCrystalHP()
+    {
+        //set text
+        CrystalHPField.SetText(Mathf.FloorToInt(DataManager.Instance.LevelDataObject.CrystalHP).ToString());
+
+        //set bar
+        CrystalHPBarFill.transform.localScale = new Vector3(Mathf.Clamp01(DataManager.Instance.LevelDataObject.CrystalHP / DataManager.Instance.LevelDataObject.MaxCrystalHP), 1.0f, 1.0f);
+        foreach (GameObject barEmpty in CrystalHPBarEmpty)
+        {
+            barEmpty.transform.localScale = new Vector3(Mathf.Clamp01((DataManager.Instance.LevelDataObject.MaxCrystalHP - DataManager.Instance.LevelDataObject.CrystalHP) / DataManager.Instance.LevelDataObject.MaxCrystalHP), 1.0f, 1.0f);
         }
     }
 
@@ -97,16 +175,44 @@ public class HUDManager : Singleton<HUDManager>
         }
     }
 
-    public void UpdateCrystalCharge()
+    public void UpdateWave()
     {
         //set text
-        CrystalChargeField.SetText(Mathf.FloorToInt(DataManager.Instance.LevelDataObject.CrystalChargePercent).ToString() + "%");
+        WaveField.SetText(WaveManager.Instance.CurrentWave.ToString());
+    }
+
+    public void UpdateTime()
+    {        
+        if (WaveManager.Instance.IsSpawningCompleted)
+        {
+            //set text
+            TimeField.SetText("-");
+
+            //set bar colour
+            //EnemiesBarFill.GetComponent<Image>().material.color = TimeBarDefaultColour;
+        }
+        else
+        {
+            //set text
+            TimeField.SetText(Mathf.FloorToInt(DataManager.Instance.LevelDataObject.TimeToNextWave).ToString());
+
+            //set bar colour
+            //EnemiesBarFill.GetComponent<Image>().material.color = Color.Lerp(TimeBarDefaultColour, TimeBarSignalColour, Mathf.Clamp01((DataManager.Instance.LevelDataObject.WaveTimeWarning - DataManager.Instance.LevelDataObject.TimeToNextWave) / DataManager.Instance.LevelDataObject.WaveTimeWarning));
+        }
+
+        
+    }
+
+    public void UpdateEnemies()
+    {
+        //set text
+        EnemiesField.SetText(DataManager.Instance.LevelDataObject.EnemiesRemaining.ToString());
 
         //set bar
-        CrystalChargeBarFill.transform.localScale = new Vector3(Mathf.Clamp01(DataManager.Instance.LevelDataObject.CrystalChargePercent / 100.0f), 1.0f, 1.0f);
-        foreach (GameObject barEmpty in CrystalChargeBarEmpty)
+        EnemiesBarFill.transform.localScale = new Vector3(Mathf.Clamp01((float)DataManager.Instance.LevelDataObject.EnemiesRemaining / (float)DataManager.Instance.LevelDataObject.VisualMaxEnemies), 1.0f, 1.0f);
+        foreach (GameObject barEmpty in EnemiesBarEmpty)
         {
-            barEmpty.transform.localScale = new Vector3(Mathf.Clamp01((100.0f - DataManager.Instance.LevelDataObject.CrystalChargePercent) / 100.0f), 1.0f, 1.0f);
+            barEmpty.transform.localScale = new Vector3(Mathf.Clamp01(((float)DataManager.Instance.LevelDataObject.VisualMaxEnemies - (float)DataManager.Instance.LevelDataObject.EnemiesRemaining) / (float)DataManager.Instance.LevelDataObject.VisualMaxEnemies), 1.0f, 1.0f);
         }
     }
 }

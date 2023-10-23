@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388ed33ce6a83a3428832cd7a8484c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CandyCost: 15
   AttackSpeed: 1
   TargetingRange: 6.5
   TowerAttackEvent: {fileID: 11400000, guid: 0392ca8d9c70fe442af12048beae99d3, type: 2}
@@ -265,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388ed33ce6a83a3428832cd7a8484c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CandyCost: 15
   AttackSpeed: 0.2
   TargetingRange: 6.5
   TowerAttackEvent: {fileID: 11400000, guid: fd315b7b342197c4ab384d6a57373f56, type: 2}
@@ -324,6 +326,8 @@ MonoBehaviour:
   - {fileID: 9125451269263658796}
   - {fileID: 9125451270442102732}
   - {fileID: 9125451269741134976}
+  StartingTowerLevel: 0
+  StartingTowerIndex: 0
 --- !u!1 &9125451269650056847
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,6 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388ed33ce6a83a3428832cd7a8484c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CandyCost: 0
   AttackSpeed: 0
   TargetingRange: 0
   TowerAttackEvent: {fileID: 11400000, guid: 0392ca8d9c70fe442af12048beae99d3, type: 2}
@@ -574,6 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388ed33ce6a83a3428832cd7a8484c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CandyCost: 10
   AttackSpeed: 0
   TargetingRange: 0
   TowerAttackEvent: {fileID: 11400000, guid: 0392ca8d9c70fe442af12048beae99d3, type: 2}
@@ -709,6 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388ed33ce6a83a3428832cd7a8484c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CandyCost: 10
   AttackSpeed: 0
   TargetingRange: 0
   TowerAttackEvent: {fileID: 11400000, guid: 0392ca8d9c70fe442af12048beae99d3, type: 2}

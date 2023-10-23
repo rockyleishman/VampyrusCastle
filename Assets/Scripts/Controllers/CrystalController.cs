@@ -5,13 +5,10 @@ using UnityEngine;
 public class CrystalController : DestructableObject
 {
     [Header("Crystal Settings")]
-    [SerializeField] public float CrystalActivationRadius = 3.0f;
-    [SerializeField] [Range(0.1f, 50.0f)] public float InitialChargePercent = 0.1f;
-    [SerializeField] public float ChargeTime = 300.0f;
+    [SerializeField] public Effect CrystalFinishEffect;
 
+    private ParticleSystem _particleSystem;
     private SpriteRenderer _spriteRenderer;
-    private bool _isCharging;
-    private bool _isFinished;
 
     protected override void Start()
     {
@@ -20,52 +17,31 @@ public class CrystalController : DestructableObject
         //set crystal reference in level data
         DataManager.Instance.LevelDataObject.Crystal = this;
 
-        //set initial HP based on charge percent
-        _currentHP = InitialChargePercent * MaxHP / 100.0f;
+        //set initial HP
+        DataManager.Instance.LevelDataObject.CrystalHP = DataManager.Instance.LevelDataObject.MaxCrystalHP;
+        _currentHP = DataManager.Instance.LevelDataObject.CrystalHP;
+        HUDManager.Instance.UpdateCrystalHP();
 
-        //get sprite renderer
+        //get sprite renderer and particle system
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _particleSystem = GetComponent<ParticleSystem>();
 
         //set colour to grey
         _spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
 
-        //does not charge at game start
-        _isCharging = false;
-        _isFinished = false;
+        //pause particle system
+        _particleSystem.Pause();
     }
 
     protected override void Update()
     {
         base.Update();
-
-        if (_isCharging)
-        {
-            //increase charge/HP
-            HealHP((MaxHP - (InitialChargePercent * MaxHP / 100.0f)) * Time.deltaTime / ChargeTime);
-            DataManager.Instance.LevelDataObject.CrystalChargePercent = _currentHP * 100.0f / MaxHP;
-            HUDManager.Instance.UpdateCrystalCharge();
-
-            //increase charge time
-            DataManager.Instance.LevelDataObject.TimeSinceCrystalStart += Time.deltaTime;
-
-            //check for complete charge
-            if (_currentHP >= MaxHP)
-            {
-                //finish charging
-                _isCharging = false;
-                _isFinished = true;
-
-                //trigger end event
-                DataManager.Instance.EventDataObject.CrystalFinish.TriggerEvent(transform.position);
-
-                Debug.Log("The crystal has fully charged! Gate opened/level complete!");
-            }
-        }
     }
 
     public override void DamageHP(float hp)
     {
         base.DamageHP(hp);
+        DataManager.Instance.LevelDataObject.CrystalHP = _currentHP;
 
         if (_iFrameTimeLeft <= 0.0f)
         {
@@ -82,15 +58,19 @@ public class CrystalController : DestructableObject
 
     public void StartCharging()
     {
-        if(!_isFinished && !_isCharging && Vector3.Distance(transform.position, DataManager.Instance.PlayerDataObject.Player.transform.position) <= CrystalActivationRadius)
-        {
-            _isCharging = true;
+        //change colour
+        _spriteRenderer.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
-            //change colour
-            _spriteRenderer.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        //play particle system
+        _particleSystem.Play();
+    }
 
-            //show crystal charge HUD
-            HUDManager.Instance.ShowCrystalCharge();
-        }        
+    public void FinishCharging()
+    {
+        //pause particle system
+        _particleSystem.Pause();
+
+        //spawn effect
+        PoolManager.Instance.Spawn(CrystalFinishEffect.name, transform.position, Quaternion.identity);
     }
 }

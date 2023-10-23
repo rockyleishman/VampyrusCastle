@@ -14,8 +14,8 @@ public class GameManager : Singleton<GameManager>
         DataManager.Instance.LevelDataObject.TimeSinceCrystalStart = -1.0f;
 
         //init crystal charge
-        DataManager.Instance.LevelDataObject.CrystalChargePercent = 0.0f;
-        HUDManager.Instance.UpdateCrystalCharge();
+        DataManager.Instance.LevelDataObject.CrystalHP = 0.0f;
+        HUDManager.Instance.UpdateCrystalHP();
     }
 
     public void AddCandy(int candy)

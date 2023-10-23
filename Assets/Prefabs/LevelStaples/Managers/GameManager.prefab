@@ -535,6 +535,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: HUDManager, Assembly-CSharp
+        m_MethodName: UpdateCandy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3554794843136753916
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +737,19 @@ MonoBehaviour:
   GameEvent: {fileID: 11400000, guid: 4801f5a1d7dda8941870fe5cd5828c25, type: 2}
   OnEventTriggered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: HUDManager, Assembly-CSharp
+        m_MethodName: UpdateHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5588315305148069528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1182,6 +1206,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1734833366}
         m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
         m_MethodName: StartSpawningWaves
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CrystalController, Assembly-CSharp
+        m_MethodName: StartCharging
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

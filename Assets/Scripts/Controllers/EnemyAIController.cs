@@ -12,7 +12,7 @@ public class EnemyAIController : DestructableObject
 {
     [Header("Movement")]
     [SerializeField] public float MovementSpeed = 4.0f;
-    private int _enemyDirection;
+    //private int _enemyDirection;
     [SerializeField] public float PathPointReachedRadius = 1.0f;
     private PathPoint _currentPathPoint;
     private DestructableObject _currentTarget;
@@ -137,7 +137,7 @@ public class EnemyAIController : DestructableObject
         Vector3 moveDirection = (_currentPathPoint.transform.position - transform.position).normalized;
         transform.Translate(moveDirection * (MovementSpeed * Time.deltaTime * SpeedMultiplier));
 
-        //change enemy direction
+        /*//change enemy direction
         if (moveDirection.y < -Mathf.Cos(Mathf.PI/8))
         {
             //south
@@ -183,7 +183,7 @@ public class EnemyAIController : DestructableObject
         {
             //east
             _enemyDirection = 6;
-        }
+        }*/
 
         //apply animation
         _animator.SetFloat("HorizontalVelocity", moveDirection.x);
