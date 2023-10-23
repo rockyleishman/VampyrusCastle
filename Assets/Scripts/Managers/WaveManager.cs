@@ -6,7 +6,7 @@ public class WaveManager : Singleton<WaveManager>
 {
     internal bool IsSpawningStarted;
     internal bool IsSpawningCompleted;
-    private int _currentWave;
+    internal int CurrentWave;
     private int _locationsCompletedForCurrentWave;
 
     private void Start()
@@ -18,7 +18,7 @@ public class WaveManager : Singleton<WaveManager>
     {
         IsSpawningStarted = false;
         IsSpawningCompleted = false;
-        _currentWave = 0;
+        CurrentWave = 0;
         _locationsCompletedForCurrentWave = 0;
         DataManager.Instance.LevelDataObject.TimeToNextWave = 0.0f;
     }
@@ -27,11 +27,13 @@ public class WaveManager : Singleton<WaveManager>
     {
         if (IsSpawningStarted && !IsSpawningCompleted)
         {
+            //update time
             DataManager.Instance.LevelDataObject.TimeToNextWave -= Time.deltaTime;
+            HUDManager.Instance.UpdateTime();
 
             if (DataManager.Instance.LevelDataObject.TimeToNextWave <= 0.0f)
             {
-                SpawnWave(_currentWave);
+                SpawnWave(CurrentWave);
             }
         }
     }
@@ -50,12 +52,14 @@ public class WaveManager : Singleton<WaveManager>
         }
 
         //increment current wave
-        _currentWave++;
+        CurrentWave++;
+        HUDManager.Instance.UpdateWave();
 
         //stop future spawns of last wave
-        if (_currentWave >= DataManager.Instance.LevelDataObject.WaveCount)
+        if (CurrentWave >= DataManager.Instance.LevelDataObject.WaveCount)
         {
             IsSpawningCompleted = true;
+            HUDManager.Instance.UpdateTime();
         }
     }
 

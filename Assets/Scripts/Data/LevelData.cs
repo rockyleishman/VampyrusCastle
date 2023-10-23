@@ -52,7 +52,15 @@ public class LevelData : ScriptableObject, ISerializationCallbackReceiver
 {
     //UI settings
     [Header("UI Settings")]
-    [SerializeField] public int VisualMaxCandy = 100;
+    [SerializeField] public int VisualMaxCandy = 50;
+    [SerializeField] public int VisualMaxEnemies = 25;
+    [SerializeField] public int WaveTimeWarning = 5;
+
+    //crystal settings
+    [Header("Crystal Settings")]
+    [SerializeField] public float MaxCrystalHP = 100;
+    internal float CrystalHP;
+    internal CrystalController Crystal;
 
     //enemy prefabs
     [Header("Enemy Prefabs")]
@@ -83,9 +91,7 @@ public class LevelData : ScriptableObject, ISerializationCallbackReceiver
 
     //hiden from inspector
     internal PathPoint[] PathPoints;
-    internal CrystalController Crystal;
     internal float TimeSinceCrystalStart;
-    internal float CrystalChargePercent;
     internal float TimeToNextWave;
     internal int EnemiesRemaining;
 

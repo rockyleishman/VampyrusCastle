@@ -8,6 +8,7 @@ public class EnemyManager : Singleton<EnemyManager>
     {
         //update enemies remaining
         DataManager.Instance.LevelDataObject.EnemiesRemaining = GetComponentsInChildren<EnemyAIController>().GetLength(0);
+        HUDManager.Instance.UpdateEnemies();
     }
 
     public void SpawnBasic(Vector3 position)

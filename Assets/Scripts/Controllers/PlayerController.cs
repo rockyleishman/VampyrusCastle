@@ -7,8 +7,6 @@ public class PlayerController : DestructableObject
     [SerializeField] [Range(0.0f, 0.1f)] public float TimeToChangeDirection = 0.05f;
     [SerializeField] [Range(0.0f, 20.0f)] public float MaxAttackSpeed = 5.0f;
     private float _attackCooldownTimer;
-    private int _inputDirection;
-    private float _inputDirectionTime;
     private int _playerDirection;
 
     private Animator _animator;
@@ -23,9 +21,7 @@ public class PlayerController : DestructableObject
         //init attack cooldown timer
         _attackCooldownTimer = 0.0f;
 
-        //init direction variables
-        _inputDirection = 0;
-        _inputDirectionTime = 0.0f;
+        //init direction
         _playerDirection = 0;
 
         //init animator
@@ -50,28 +46,23 @@ public class PlayerController : DestructableObject
         //apply movement
         transform.Translate(moveDirection * MovementSpeed * Time.deltaTime * SpeedMultiplier);
 
-        //change player direction
-        int lastDirection = _playerDirection;
-
+        //change player direction (for attack direction)
         if (moveDirection.x > 0.0f)
         {
             if (moveDirection.y > 0.0f)
             {
                 //northeast
-                _inputDirection = 5;
-                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
+                _playerDirection = 5;
             }
             else if (moveDirection.y < 0.0f)
             {
                 //southeast
-                _inputDirection = 7;
-                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
+                _playerDirection = 7;
             }
             else
             {
                 //east
-                _inputDirection = 6;
-                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
+                _playerDirection = 6;
             }
         }
         else if (moveDirection.x < 0.0f)
@@ -79,20 +70,17 @@ public class PlayerController : DestructableObject
             if (moveDirection.y > 0.0f)
             {
                 //northwest
-                _inputDirection = 3;
-                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
+                _playerDirection = 3;
             }
             else if (moveDirection.y < 0.0f)
             {
                 //southwest
-                _inputDirection = 1;
-                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
+                _playerDirection = 1;
             }
             else
             {
                 //west
-                _inputDirection = 2;
-                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
+                _playerDirection = 2;
             }
         }
         else
@@ -100,38 +88,18 @@ public class PlayerController : DestructableObject
             if (moveDirection.y > 0.0f)
             {
                 //north
-                _inputDirection = 4;
-                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
+                _playerDirection = 4;
             }
             else if (moveDirection.y < 0.0f)
             {
                 //south
-                _inputDirection = 0;
-                _inputDirectionTime += Time.deltaTime * SpeedMultiplier;
+                _playerDirection = 0;
             }
-            else
-            {
-                //no directional input
-                _inputDirectionTime = 0.0f;
-            }
-        }
-
-        if(_inputDirection == _playerDirection)
-        {
-            _inputDirectionTime = 0.0f;
-        }
-
-        if (_inputDirectionTime > TimeToChangeDirection)
-        {
-            _playerDirection = _inputDirection;
         }
 
         //apply animation
-        if (lastDirection != _playerDirection)
-        {
-            _animator.SetInteger("PlayerDirection", _playerDirection);
-            _animator.SetTrigger("ChangeDirection");
-        }
+        _animator.SetFloat("HorizontalVelocity", moveDirection.x);
+        _animator.SetBool("IsMoving", moveDirection != Vector2.zero);
     }
 
     private void Attack()
@@ -239,7 +207,10 @@ public class PlayerController : DestructableObject
 
         DataManager.Instance.PlayerDataObject.CurrentHP = _currentHP;
 
-        DataManager.Instance.EventDataObject.PlayerDamage.TriggerEvent(transform.position);
+        if (_iFrameTimeLeft <= 0.0f)
+        {
+            DataManager.Instance.EventDataObject.PlayerDamage.TriggerEvent(transform.position);
+        }
     }
 
     public override void HealHP(float hp)

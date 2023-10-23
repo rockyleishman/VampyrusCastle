@@ -5,6 +5,7 @@ using UnityEngine;
 public class TowerAIController : MonoBehaviour
 {
     [Header("Tower Settings")]
+    [SerializeField] public int CandyCost = 10;
     [SerializeField] public float AttackSpeed = 1f; //if <= 0, targeting and attacks are disabled
     private float _attackTimer;
     [SerializeField] public float TargetingRange = 6.5f;

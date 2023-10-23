@@ -93,7 +93,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4052299052639521866}
   m_Father: {fileID: 0}
@@ -140,12 +140,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1441605042, guid: ab0521c072a5382479e0b0607f4493b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab0521c072a5382479e0b0607f4493b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1.4166666, y: 1.6666666}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -198,7 +198,7 @@ Animator:
   m_GameObject: {fileID: 8993567575822830367}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 76aaaadae469ee645a07c0550cd6c4bd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3a9b0ae44b6c09542823c2f6ce113bda, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -226,10 +226,4 @@ MonoBehaviour:
   IFramesTime: 0.5
   MovementSpeed: 5
   TimeToChangeDirection: 0.05
-  PlayerAttackEvent: {fileID: 11400000, guid: d8d6606695da7954aa1ae3b03aefe24b, type: 2}
-  PlayerDamageEvent: {fileID: 11400000, guid: 4801f5a1d7dda8941870fe5cd5828c25, type: 2}
-  PlayerHealEvent: {fileID: 11400000, guid: 5a0909528765993418294ca030d62e0f, type: 2}
-  PlayerDeathEvent: {fileID: 11400000, guid: 66df9bf1af9044b458393682418e1564, type: 2}
-  BuildModeEnter: {fileID: 11400000, guid: 50b9097aed5f6134b8549c15a232aee4, type: 2}
-  BuildModeExit: {fileID: 11400000, guid: 44a86ec1604014e4b91302c99fb51a23, type: 2}
-  CrystalStartEvent: {fileID: 11400000, guid: 1a0d12c3c2bd74e4788c507ff82838b0, type: 2}
+  MaxAttackSpeed: 5
