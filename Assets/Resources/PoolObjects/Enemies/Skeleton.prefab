@@ -140,12 +140,12 @@ MonoBehaviour:
   MaxHP: 10
   KnockbackMultiplier: 1
   IFramesTime: 0.1
-  MovementSpeed: 1.5
+  MovementSpeed: 2.5
   PathPointReachedRadius: 2
   PlayerDetectionRange: 6
   PlayerChaseRange: 9
   AverageTimeBeforeScanningForTarget: 15
-  CollisionDamage: 3
+  CollisionDamage: 5
   CollisionCooldown: 1
   CollisionKnockbackDistance: 2
   CollisionKnockbackVelocity: 20

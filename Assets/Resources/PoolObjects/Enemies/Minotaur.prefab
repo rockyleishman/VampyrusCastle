@@ -137,16 +137,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1f3dfabd825b240990f26bbb3794b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 25
-  KnockbackMultiplier: 1
+  MaxHP: 40
+  KnockbackMultiplier: 0.5
   IFramesTime: 0.1
-  MovementSpeed: 0.5
+  MovementSpeed: 1.5
   PathPointReachedRadius: 2
   PlayerDetectionRange: 6
   PlayerChaseRange: 9
   AverageTimeBeforeScanningForTarget: 15
-  CollisionDamage: 10
-  CollisionCooldown: 5
+  CollisionDamage: 15
+  CollisionCooldown: 2
   CollisionKnockbackDistance: 3
   CollisionKnockbackVelocity: 20
   MinCandyDropped: 5
