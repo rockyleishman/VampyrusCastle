@@ -66,16 +66,16 @@ public class WaveManager : Singleton<WaveManager>
     private IEnumerator SpawnWaveAtLocation(int waveIndex, int locationIndex)
     {
         //create spawning stack
-        Stack<EnemyType> spawnStack = new Stack<EnemyType>();
+        Queue<EnemyType> spawnStack = new Queue<EnemyType>();
         for (int i = 0; i < DataManager.Instance.LevelDataObject.EnemyCounts[waveIndex, locationIndex]; i++)
         {
-            spawnStack.Push(DataManager.Instance.LevelDataObject.Enemies[waveIndex, locationIndex, i]);
+            spawnStack.Enqueue(DataManager.Instance.LevelDataObject.Enemies[waveIndex, locationIndex, i]);
         }
 
         //spawn from stack with delays
         while (spawnStack.Count > 0)
         {
-            switch (spawnStack.Pop())
+            switch (spawnStack.Dequeue())
             {
                 case EnemyType.Basic:
                     DataManager.Instance.EventDataObject.SpawnEnemyBasic.TriggerEvent(DataManager.Instance.LevelDataObject.SpawnLocations[locationIndex]);
