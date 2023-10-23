@@ -204,6 +204,7 @@ public class EnemyAIController : DestructableObject
         //check if player is in range
         if (_currentTarget is PlayerController && Vector3.Distance(transform.position, DataManager.Instance.PlayerDataObject.Player.transform.position) > PlayerChaseRange)
         {
+            _currentPathPoint = null;
             _state = EnemyState.FollowPath;
         }
 

@@ -14,6 +14,7 @@ public class EnemyExplosiveProjectile : ExplosiveProjectile
             {
                 //deal direct damage (area damage applies knockback)
                 destructableObject.DamageHP(_directDamage);
+                destructableObject.Knockback((destructableObject.transform.position - transform.position).normalized * _knockbackDistance, _knockbackTime);
                 destructableObject.ActivateIFrames();
 
                 //deal area damage
