@@ -831,13 +831,7 @@ MonoBehaviour:
   IFramesTime: 0.5
   MovementSpeed: 5
   TimeToChangeDirection: 0.05
-  PlayerAttackEvent: {fileID: 0}
-  PlayerDamageEvent: {fileID: 0}
-  PlayerHealEvent: {fileID: 0}
-  PlayerDeathEvent: {fileID: 0}
-  BuildModeEnter: {fileID: 0}
-  BuildModeExit: {fileID: 0}
-  CrystalStartEvent: {fileID: 0}
+  MaxAttackSpeed: 5
 --- !u!50 &221402922
 Rigidbody2D:
   serializedVersion: 4
@@ -1419,6 +1413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelDataObject: {fileID: 11400000, guid: 980bf936e9b2e1d4ca23f36d5500ba73, type: 2}
+  EventDataObject: {fileID: 0}
   PlayerDataObject: {fileID: 0}
 --- !u!114 &515931538
 MonoBehaviour:
@@ -6246,13 +6241,7 @@ MonoBehaviour:
   IFramesTime: 0.5
   MovementSpeed: 5
   TimeToChangeDirection: 0.05
-  PlayerAttackEvent: {fileID: 0}
-  PlayerDamageEvent: {fileID: 0}
-  PlayerHealEvent: {fileID: 0}
-  PlayerDeathEvent: {fileID: 0}
-  BuildModeEnter: {fileID: 0}
-  BuildModeExit: {fileID: 0}
-  CrystalStartEvent: {fileID: 0}
+  MaxAttackSpeed: 5
 --- !u!50 &1148647977
 Rigidbody2D:
   serializedVersion: 4
