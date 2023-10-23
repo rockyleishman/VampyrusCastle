@@ -241,6 +241,41 @@ PrefabInstance:
       propertyPath: OnEventTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6226194741967739330}
+    - target: {fileID: 5588315305148069528, guid: 71e8d0e457a7a4e43ae175cb32b8e53b,
+        type: 3}
+      propertyPath: OnEventTriggered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588315305148069528, guid: 71e8d0e457a7a4e43ae175cb32b8e53b,
+        type: 3}
+      propertyPath: OnEventTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588315305148069528, guid: 71e8d0e457a7a4e43ae175cb32b8e53b,
+        type: 3}
+      propertyPath: OnEventTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6821946961360128262}
+    - target: {fileID: 5588315305148069528, guid: 71e8d0e457a7a4e43ae175cb32b8e53b,
+        type: 3}
+      propertyPath: OnEventTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588315305148069528, guid: 71e8d0e457a7a4e43ae175cb32b8e53b,
+        type: 3}
+      propertyPath: OnEventTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateHP
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588315305148069528, guid: 71e8d0e457a7a4e43ae175cb32b8e53b,
+        type: 3}
+      propertyPath: OnEventTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HUDManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588315305148069528, guid: 71e8d0e457a7a4e43ae175cb32b8e53b,
+        type: 3}
+      propertyPath: OnEventTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6000506348488569097, guid: 71e8d0e457a7a4e43ae175cb32b8e53b,
         type: 3}
       propertyPath: OnEventTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
