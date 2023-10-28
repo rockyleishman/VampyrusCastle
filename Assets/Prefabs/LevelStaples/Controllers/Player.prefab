@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4052299052639521866}
   - component: {fileID: 5427175578794396092}
   - component: {fileID: 7724417891734530087}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CandyCollector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 8993567575822830365}
   - component: {fileID: 8993567575822830361}
   - component: {fileID: 8993567575822830366}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
