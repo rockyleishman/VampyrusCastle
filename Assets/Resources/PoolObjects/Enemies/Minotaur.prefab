@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!58 &4765485064914922355
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   CollisionKnockbackDistance: 3
   CollisionKnockbackVelocity: 20
   MinCandyDropped: 5
-  MaxCandyDropped: 10
+  MaxCandyDropped: 7
   CandySpawnEvent: {fileID: 11400000, guid: 49b617f849356c446ad454c648cf00a8, type: 2}
 --- !u!95 &814623844818515177
 Animator:
