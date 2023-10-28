@@ -926,12 +926,27 @@ PrefabInstance:
     - target: {fileID: 3073831188532599068, guid: fd347aadc04a5394b935651d0353a0d3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.92
+      value: -4.04
       objectReference: {fileID: 0}
     - target: {fileID: 3073831188532599068, guid: fd347aadc04a5394b935651d0353a0d3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.45
+      value: -1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073831188532599069, guid: fd347aadc04a5394b935651d0353a0d3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073831188532599069, guid: fd347aadc04a5394b935651d0353a0d3,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073831188532599069, guid: fd347aadc04a5394b935651d0353a0d3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1869315837
       objectReference: {fileID: 0}
     - target: {fileID: 3909929064089594694, guid: fd347aadc04a5394b935651d0353a0d3,
         type: 3}
@@ -942,6 +957,33 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226194741150527576, guid: fd347aadc04a5394b935651d0353a0d3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 18.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226194741150527576, guid: fd347aadc04a5394b935651d0353a0d3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 84.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226194741150527577, guid: fd347aadc04a5394b935651d0353a0d3,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: bddc736b1643b7c48a63610ccc0071b1,
+        type: 2}
+    - target: {fileID: 6226194741150527577, guid: fd347aadc04a5394b935651d0353a0d3,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1573481929481492444, guid: bddc736b1643b7c48a63610ccc0071b1,
+        type: 2}
+    - target: {fileID: 6226194741829032385, guid: fd347aadc04a5394b935651d0353a0d3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6862200783151081678, guid: fd347aadc04a5394b935651d0353a0d3,
         type: 3}
@@ -22903,7 +22945,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -22649523
   m_SortingLayer: -7
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 2.0833333, y: 5.2083335, z: 0}
   m_MaxChunkCount: 16
