@@ -132,11 +132,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6928006161410465937}
     m_Modifications:
-    - target: {fileID: 9125451268862369151, guid: 626bb6ea438b25a499c4282074e5d191,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9125451269589711696, guid: 626bb6ea438b25a499c4282074e5d191,
         type: 3}
       propertyPath: m_RootOrder
@@ -196,16 +191,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TowerNode1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9125451269650056847, guid: 626bb6ea438b25a499c4282074e5d191,
-        type: 3}
-      propertyPath: m_Name
-      value: EmptyNode
-      objectReference: {fileID: 0}
-    - target: {fileID: 9125451269650056847, guid: 626bb6ea438b25a499c4282074e5d191,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626bb6ea438b25a499c4282074e5d191, type: 3}
