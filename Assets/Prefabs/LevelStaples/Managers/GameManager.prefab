@@ -1472,7 +1472,7 @@ MonoBehaviour:
     type: 3}
   DirectDamage: 10
   AreaDamage: 5
-  Radius: 1.5
+  Radius: 2
   ProjectileSpeed: 20
   KnockbackDistance: 1
   KnockbackVelocity: 20
