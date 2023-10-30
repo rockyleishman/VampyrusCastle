@@ -1,33 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealthBar : MonoBehaviour
 {
-    private Canvas _playerCanvas;
-    public Image image;
-    public Gradient gradient;
+    private Canvas _healthBarCanvas;
     private Slider _slider;
+    [SerializeField] public Image Fill;
+    [SerializeField] public Color FullHealthColour;
+    [SerializeField] public Color TwoThirdsHealthColour;
+    [SerializeField] public Color OneThirdHealthColour;
 
-    private float _remapValue;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        _playerCanvas = this.GetComponent<Canvas>();
-        _playerCanvas.worldCamera=FindObjectOfType<Camera>();
-        _playerCanvas.sortingLayerName = "Default";
-        _playerCanvas.sortingOrder = 3;
-        _slider=_playerCanvas.transform.GetChild(0).GetComponent<Slider>();
-        
+        _healthBarCanvas = GetComponent<Canvas>();
+        _healthBarCanvas.worldCamera = Camera.main;
+        _slider = _healthBarCanvas.transform.GetChild(0).GetComponent<Slider>();
+        _slider.maxValue = DataManager.Instance.PlayerDataObject.MaxHP;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateHP()
     {
-        _remapValue = _slider.value / 100;
-        image.color = gradient.Evaluate(_remapValue);
+        //change slider value
+        _slider.value = DataManager.Instance.PlayerDataObject.CurrentHP;
+
+        //change colour
+        float hpRatio = DataManager.Instance.PlayerDataObject.CurrentHP / DataManager.Instance.PlayerDataObject.MaxHP;
+        if (hpRatio >= 2.0f / 3.0f)
+        {
+            Fill.color = Color.Lerp(TwoThirdsHealthColour, FullHealthColour, (hpRatio - (2.0f / 3.0f)) * 3.0f);
+        }
+        else if (hpRatio >= 1.0f / 3.0f)
+        {
+            Fill.color = Color.Lerp(OneThirdHealthColour, TwoThirdsHealthColour, (hpRatio - (1.0f / 3.0f)) * 3.0f);
+        }
+        else
+        {
+            Fill.color = OneThirdHealthColour;
+        }
     }
-
-
 }
