@@ -41,6 +41,6 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene(DataManager.Instance.LevelDataObject.NextLevel.name);
+        SceneManager.LoadScene(DataManager.Instance.LevelDataObject.NextLevelBuildIndex);
     }
 }

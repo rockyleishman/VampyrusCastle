@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 //for serializing 2D arrays
@@ -59,7 +58,7 @@ public class LevelData : ScriptableObject, ISerializationCallbackReceiver
 
     //next level
     [Header("Scene Navigation")]
-    [SerializeField] public SceneAsset NextLevel;
+    [SerializeField] public int NextLevelBuildIndex;
 
     //crystal settings
     [Header("Crystal Settings")]
