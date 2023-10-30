@@ -347,8 +347,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bddc736b1643b7c48a63610ccc0071b1, type: 2}
-  m_sharedMaterial: {fileID: -1573481929481492444, guid: bddc736b1643b7c48a63610ccc0071b1,
+  m_fontAsset: {fileID: 11400000, guid: 4a77250431b7c1b409c503ecb995be77, type: 2}
+  m_sharedMaterial: {fileID: -3458531235341762270, guid: 4a77250431b7c1b409c503ecb995be77,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 527507666}
   - component: {fileID: 527507665}
   m_Layer: 5
-  m_Name: Enemy (2)
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -458,8 +458,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 322.1, y: 6.2}
-  m_SizeDelta: {x: 28.5877, y: 31.459}
+  m_AnchoredPosition: {x: 314.1, y: -27.633}
+  m_SizeDelta: {x: 23.8338, y: 26.6004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &527507665
 MonoBehaviour:
@@ -573,7 +573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517, y: 187}
+  m_AnchoredPosition: {x: 0.000030517, y: 184}
   m_SizeDelta: {x: 889.8462, y: 206.501}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &846351263
@@ -598,8 +598,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Vampyrus' Castle
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bddc736b1643b7c48a63610ccc0071b1, type: 2}
-  m_sharedMaterial: {fileID: -1573481929481492444, guid: bddc736b1643b7c48a63610ccc0071b1,
+  m_fontAsset: {fileID: 11400000, guid: 6eacc33be6bf3374b853897241ea2877, type: 2}
+  m_sharedMaterial: {fileID: -3460029915201652987, guid: 6eacc33be6bf3374b853897241ea2877,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -624,8 +624,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -709,8 +709,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1102, y: 514}
+  m_AnchoredPosition: {x: 0.00000071526, y: 0.19824}
+  m_SizeDelta: {x: 1171.9688, y: 604.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &870213512
 MonoBehaviour:
@@ -855,7 +855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -205}
+  m_AnchoredPosition: {x: 0, y: -254}
   m_SizeDelta: {x: 202.0874, y: 194.2035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1422818147
@@ -987,7 +987,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -52.7, y: 0.0000016689}
+  m_AnchoredPosition: {x: -54.4, y: -35.669}
   m_SizeDelta: {x: 48.9726, y: 62.9375}
   m_Pivot: {x: 0.49999997, y: 0.50000006}
 --- !u!114 &1592488420
@@ -1167,7 +1167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015258789, y: 0}
+  m_AnchoredPosition: {x: -3.8, y: -28.3}
   m_SizeDelta: {x: 18.8605, y: 25.2659}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2091994818
