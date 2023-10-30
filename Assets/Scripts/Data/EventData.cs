@@ -10,6 +10,9 @@ public class EventData : ScriptableObject
     [SerializeField] public AttackEvent BasicTowerAttack;
     [SerializeField] public AttackEvent BombTowerAttack;
 
+    [Header("General Game Events")]
+    [SerializeField] public GameEvent LoadNextLevel;
+
     [Header("Collectable Game Events")]
     [SerializeField] public GameEvent CandySpawn;
     [SerializeField] public GameEvent CandyCollect;

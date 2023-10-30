@@ -94,7 +94,7 @@ public class TowerManager : Singleton<TowerManager>
 
         //hide build menu UI
         DataManager.Instance.EventDataObject.BuildMenuHide.TriggerEvent(_currentNode.transform.position);
-        Debug.Log("BUILD MODE CLOSED");
+        //Debug.Log("BUILD MODE CLOSED");
     }
 
     private void BuildMode()

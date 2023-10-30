@@ -15,6 +15,7 @@ MonoBehaviour:
   PlayerAttack: {fileID: 11400000, guid: d8d6606695da7954aa1ae3b03aefe24b, type: 2}
   BasicTowerAttack: {fileID: 11400000, guid: 0392ca8d9c70fe442af12048beae99d3, type: 2}
   BombTowerAttack: {fileID: 11400000, guid: fd315b7b342197c4ab384d6a57373f56, type: 2}
+  LoadNextLevel: {fileID: 11400000, guid: 7e8b41e40f0bfe54a9b7ef80d26b85f5, type: 2}
   CandySpawn: {fileID: 11400000, guid: 49b617f849356c446ad454c648cf00a8, type: 2}
   CandyCollect: {fileID: 11400000, guid: 4e5151139b678bb459aa598a4fd785e0, type: 2}
   WaveStart: {fileID: 11400000, guid: 1a0d12c3c2bd74e4788c507ff82838b0, type: 2}

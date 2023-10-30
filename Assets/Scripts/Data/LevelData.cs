@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 //for serializing 2D arrays
@@ -50,11 +51,15 @@ public enum EnemyType
 [CreateAssetMenu(fileName = "LevelDataObject", menuName = "Data/LevelDataObject", order = 0)]
 public class LevelData : ScriptableObject, ISerializationCallbackReceiver
 {
-    //UI settings
-    [Header("UI Settings")]
-    [SerializeField] public int VisualMaxCandy = 50;
-    [SerializeField] public int VisualMaxEnemies = 25;
-    [SerializeField] public int WaveTimeWarning = 5;
+    //UI settings (depreciated)
+    //[Header("UI Settings")]
+    [SerializeField, HideInInspector] public int VisualMaxCandy = 50;
+    [SerializeField, HideInInspector] public int VisualMaxEnemies = 25;
+    [SerializeField, HideInInspector] public int WaveTimeWarning = 5;
+
+    //next level
+    [Header("Scene Navigation")]
+    [SerializeField] public SceneAsset NextLevel;
 
     //crystal settings
     [Header("Crystal Settings")]
@@ -75,6 +80,7 @@ public class LevelData : ScriptableObject, ISerializationCallbackReceiver
     public const int MaxWaveCount = 128;
     public const int MaxSpawnLocations = 4;
     public const int MaxEnemiesPerSpawnLocation = 256;
+    public const float FinalWaveMinTime = 5.0f;
     [Header("Wave Settings")]
     [SerializeField] [Range(1, MaxWaveCount)] public int WaveCount = 10;
     [SerializeField] public Vector2[] SpawnLocations;

@@ -8,6 +8,7 @@ public class WaveManager : Singleton<WaveManager>
     internal bool IsSpawningCompleted;
     internal int CurrentWave;
     private int _locationsCompletedForCurrentWave;
+    private float _timeSinceSpawningCompleted;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class WaveManager : Singleton<WaveManager>
         IsSpawningCompleted = false;
         CurrentWave = 0;
         _locationsCompletedForCurrentWave = 0;
+        _timeSinceSpawningCompleted = 0;
         DataManager.Instance.LevelDataObject.TimeToNextWave = 0.0f;
     }
 
@@ -35,6 +37,15 @@ public class WaveManager : Singleton<WaveManager>
             {
                 SpawnWave(CurrentWave);
             }
+        }
+        else if (IsSpawningCompleted)
+        {
+            _timeSinceSpawningCompleted += Time.deltaTime;
+        }
+
+        if (_timeSinceSpawningCompleted > LevelData.FinalWaveMinTime && DataManager.Instance.LevelDataObject.EnemiesRemaining == 0)
+        {
+            DataManager.Instance.EventDataObject.LoadNextLevel.TriggerEvent(transform.position);
         }
     }
 
