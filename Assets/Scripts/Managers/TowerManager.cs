@@ -148,4 +148,18 @@ public class TowerManager : Singleton<TowerManager>
             ExitBuildMode();
         }
     }
+
+    public void BuildLevel1Tower(int index)
+    {
+        if (_currentNode.ActivateTower(1, index))
+        {
+            //exit build mode if successful
+            ExitBuildMode();
+        }
+    }
+
+    public void DemolishTower()
+    {
+        _currentNode.ResetTower();
+    }
 }
