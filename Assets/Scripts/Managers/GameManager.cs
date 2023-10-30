@@ -5,17 +5,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] [Range(0.001f, 10.0f)] public float GameOverGameTimeHalfLife = 1.0f;
+
     private void Awake()
     {
+        //set game speed to full
+        Time.timeScale = 1.0f;
+
         //set candy to 0
         DataManager.Instance.PlayerDataObject.Candy = 0;
-
-        //set time since crystal start to negative to prevent premature spawns
-        DataManager.Instance.LevelDataObject.TimeSinceCrystalStart = -1.0f;
-
-        //init crystal charge
-        DataManager.Instance.LevelDataObject.CrystalHP = 0.0f;
-        //HUDManager.Instance.UpdateCrystalHP();
     }
 
     public void AddCandy(int candy)
@@ -27,10 +25,18 @@ public class GameManager : Singleton<GameManager>
     {
         DataManager.Instance.PlayerDataObject.Candy -= candy;
     }
-    
-    private void Update()
+
+    public void GameOver()
     {
-        
-        //SceneManager.LoadScene(0);
+        StartCoroutine(GameOverSlowDown());
+    }
+
+    private IEnumerator GameOverSlowDown()
+    {
+        while (Time.timeScale > 0.001f)
+        {
+            Time.timeScale *= 0.5f;
+            yield return new WaitForSecondsRealtime(GameOverGameTimeHalfLife);
+        }
     }
 }

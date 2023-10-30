@@ -10,6 +10,7 @@ public class PlayerController : DestructableObject
     private float _attackCooldownTimer;
     private int _playerDirection;
     private Animator _animator;
+    private bool _canAttack;
 
     protected override void Start()
     {
@@ -25,6 +26,9 @@ public class PlayerController : DestructableObject
 
         //init animator
         _animator = GetComponent<Animator>();
+
+        //can attack from start
+        _canAttack = true;
     }
 
     protected override void Update()
@@ -104,7 +108,7 @@ public class PlayerController : DestructableObject
     {
         _attackCooldownTimer -= Time.deltaTime;
 
-        if (Input.GetButtonDown("Jump") && _attackCooldownTimer <= 0.0f)
+        if (Input.GetButtonDown("Fire1") && _attackCooldownTimer <= 0.0f && _canAttack)
         {
             //determine attack rotation
             Vector3 attackDirection;
@@ -157,6 +161,16 @@ public class PlayerController : DestructableObject
             //reset cooldown
             _attackCooldownTimer = 1.0f / MaxAttackSpeed;
         }
+    }
+
+    public void DisableAttacks()
+    {
+        _canAttack = false;
+    }
+
+    public void EnableAttacks()
+    {
+        _canAttack = true;
     }
 
     private void BuildMode()
