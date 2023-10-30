@@ -104,7 +104,7 @@ public class PlayerController : DestructableObject
     {
         _attackCooldownTimer -= Time.deltaTime;
 
-        if (Input.GetButtonDown("Fire1") && _attackCooldownTimer <= 0.0f)
+        if (Input.GetButtonDown("Jump") && _attackCooldownTimer <= 0.0f)
         {
             //determine attack rotation
             Vector3 attackDirection;

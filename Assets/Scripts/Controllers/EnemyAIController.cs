@@ -225,6 +225,7 @@ public class EnemyAIController : DestructableObject
             {
                 player.DamageHP(CollisionDamage);
                 player.Knockback((player.transform.position - transform.position).normalized * CollisionKnockbackDistance, CollisionKnockbackDistance / CollisionKnockbackVelocity);
+                SoundManager.Instance.PlayHitSound();
                 player.ActivateIFrames();
                 _collisionCooldownTimer = CollisionCooldown;
             }
