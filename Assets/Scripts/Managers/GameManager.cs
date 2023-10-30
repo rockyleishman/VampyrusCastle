@@ -15,7 +15,7 @@ public class GameManager : Singleton<GameManager>
 
         //init crystal charge
         DataManager.Instance.LevelDataObject.CrystalHP = 0.0f;
-        HUDManager.Instance.UpdateCrystalHP();
+        //HUDManager.Instance.UpdateCrystalHP();
     }
 
     public void AddCandy(int candy)

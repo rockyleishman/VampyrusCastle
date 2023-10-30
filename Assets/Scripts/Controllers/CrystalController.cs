@@ -1,26 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CrystalController : DestructableObject
 {
     [Header("Crystal Settings")]
     [SerializeField] public Effect CrystalFinishEffect;
-
+    private Slider _slider;
     private ParticleSystem _particleSystem;
     private SpriteRenderer _spriteRenderer;
 
     protected override void Start()
     {
         base.Start();
-
+        _slider = GetComponentInChildren<Slider>();
         //set crystal reference in level data
         DataManager.Instance.LevelDataObject.Crystal = this;
 
         //set initial HP
         DataManager.Instance.LevelDataObject.CrystalHP = DataManager.Instance.LevelDataObject.MaxCrystalHP;
         _currentHP = DataManager.Instance.LevelDataObject.CrystalHP;
-        HUDManager.Instance.UpdateCrystalHP();
+        //HUDManager.Instance.UpdateCrystalHP();
 
         //get sprite renderer and particle system
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -36,6 +37,7 @@ public class CrystalController : DestructableObject
     protected override void Update()
     {
         base.Update();
+        _slider.value = _currentHP;
     }
 
     public override void DamageHP(float hp)

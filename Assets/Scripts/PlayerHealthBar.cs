@@ -16,7 +16,7 @@ public class PlayerHealthBar : MonoBehaviour
     {
         _playerCanvas = this.GetComponent<Canvas>();
         _playerCanvas.worldCamera=FindObjectOfType<Camera>();
-        _playerCanvas.sortingLayerName = "Player";
+        _playerCanvas.sortingLayerName = "Default";
         _playerCanvas.sortingOrder = 3;
         _slider=_playerCanvas.transform.GetChild(0).GetComponent<Slider>();
         
@@ -25,7 +25,7 @@ public class PlayerHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _remapValue = (_slider.value - 0) / 100;
+        _remapValue = _slider.value / 100;
         image.color = gradient.Evaluate(_remapValue);
     }
 
