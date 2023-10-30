@@ -13,7 +13,8 @@ public class HUDManager : Singleton<HUDManager>
     [SerializeField] public GameObject TimeGroup;
     [SerializeField] public GameObject EnemiesGroup;
     [SerializeField] public GameObject GameOverGroup;
-    
+    [SerializeField] public GameObject TowerMenuGroup;
+
     [Header("Text Fields")]
     //[SerializeField] public TextMeshProUGUI HPField;
     //[SerializeField] public TextMeshProUGUI CrystalHPField;
@@ -47,6 +48,7 @@ public class HUDManager : Singleton<HUDManager>
         HideTime();
         HideEnemies();
         HideGameOver();
+        HideTowerMenu();
     }
 
     /*private void Update()
@@ -156,6 +158,16 @@ public class HUDManager : Singleton<HUDManager>
     public void HideGameOver()
     {
         GameOverGroup.SetActive(false);
+    }
+
+    public void ShowTowerMenu()
+    {
+        TowerMenuGroup.SetActive(true);
+    }
+
+    public void HideTowerMenu()
+    {
+        TowerMenuGroup.SetActive(false);
     }
 
     /*public void UpdateHP()

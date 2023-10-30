@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildMenuAreaRadius: 3
   DemolishHotKey: 8
-  HotKeysByLevel1TowerIndex: 31000000
-  HotKeysByLevel2TowerIndex: 310000003200000033000000
+  HotKeysByLevel1TowerIndex: 31000000320000003300000034000000
+  HotKeysByLevel2TowerIndex: 
 --- !u!1001 &704305562
 PrefabInstance:
   m_ObjectHideFlags: 0

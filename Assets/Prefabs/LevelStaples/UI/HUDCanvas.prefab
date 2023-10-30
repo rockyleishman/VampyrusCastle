@@ -2884,24 +2884,11 @@ MonoBehaviour:
   TimeGroup: {fileID: 8018489144219118961}
   EnemiesGroup: {fileID: 6739537265746345875}
   GameOverGroup: {fileID: 370793377399564795}
+  TowerMenuGroup: {fileID: 117269763369777580}
   CandyField: {fileID: 633758213183839513}
   WaveField: {fileID: 6000483631809344398}
   TimeField: {fileID: 6218015901646331616}
   EnemiesField: {fileID: 9008155519322572710}
-  CandyBarFill: {fileID: 633758213238722519}
-  CandyBarEmpty:
-  - {fileID: 633758212603255819}
-  - {fileID: 633758213235682983}
-  WaveBar: {fileID: 544919004416936840}
-  WaveBarSignalColour: {r: 0.7529412, g: 0, b: 0, a: 0.7529412}
-  WaveBarDefaultColour: {r: 0, g: 0, b: 0, a: 0.7529412}
-  TimeBar: {fileID: 6051214832295341823}
-  TimeBarSignalColour: {r: 0.7529412, g: 0, b: 0, a: 0.7529412}
-  TimeBarDefaultColour: {r: 0, g: 0, b: 0, a: 0.7529412}
-  EnemiesBarFill: {fileID: 4776800509756430588}
-  EnemiesBarEmpty:
-  - {fileID: 56825100611545170}
-  - {fileID: 6866804225141130828}
 --- !u!114 &4296770195513354142
 MonoBehaviour:
   m_ObjectHideFlags: 0
