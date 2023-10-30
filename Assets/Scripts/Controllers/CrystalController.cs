@@ -27,8 +27,8 @@ public class CrystalController : DestructableObject
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _particleSystem = GetComponent<ParticleSystem>();
 
-        //set colour to grey
-        _spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+        //set colour to greyish
+        _spriteRenderer.color = new Color(0.75f, 0.75f, 0.75f, 1.0f);
 
         //pause particle system
         _particleSystem.Pause();
@@ -38,6 +38,7 @@ public class CrystalController : DestructableObject
     {
         base.Update();
         _slider.value = _currentHP;
+        _spriteRenderer.color = Color.Lerp(new Color(1.0f, 1.0f, 1.0f, 1.0f), new Color(0.0f, 1.0f, 1.0f, 1.0f), (float)WaveManager.Instance.CurrentWave / (float)DataManager.Instance.LevelDataObject.WaveCount);
     }
 
     public override void DamageHP(float hp)
