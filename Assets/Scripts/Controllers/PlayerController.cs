@@ -9,13 +9,11 @@ public class PlayerController : DestructableObject
     [SerializeField] [Range(0.0f, 20.0f)] public float MaxAttackSpeed = 5.0f;
     private float _attackCooldownTimer;
     private int _playerDirection;
-    private Slider _slider;
     private Animator _animator;
 
     protected override void Start()
     {
         base.Start();
-        _slider = GetComponentInChildren<Slider>();
         //set player reference in player data
         DataManager.Instance.PlayerDataObject.Player = this;
 
@@ -32,7 +30,6 @@ public class PlayerController : DestructableObject
     protected override void Update()
     {
         base.Update();
-        _slider.value = _currentHP;
         Movement();
         Attack();
         BuildMode();

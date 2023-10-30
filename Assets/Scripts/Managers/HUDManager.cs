@@ -178,7 +178,7 @@ public class HUDManager : Singleton<HUDManager>
     public void UpdateWave()
     {
         //set text
-        WaveField.SetText(WaveManager.Instance.CurrentWave.ToString());
+        WaveField.SetText(WaveManager.Instance.CurrentWave.ToString() + " / " + DataManager.Instance.LevelDataObject.WaveCount);
     }
 
     public void UpdateTime()
