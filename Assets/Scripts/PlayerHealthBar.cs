@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class PlayerHealthBar : MonoBehaviour
 {
     private Canvas _playerCanvas;
-
+    public Image image;
+    public Gradient gradient;
     private Slider _slider;
+
+    private float _remapValue;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +25,9 @@ public class PlayerHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _remapValue = (_slider.value - 0) / 100;
+        image.color = gradient.Evaluate(_remapValue);
     }
 
-    public void ChangeHealthValue(int value)
-    {
-        _slider.value = value;
-    }
+
 }
