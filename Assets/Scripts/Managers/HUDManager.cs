@@ -13,6 +13,7 @@ public class HUDManager : Singleton<HUDManager>
     [SerializeField] public GameObject TimeGroup;
     [SerializeField] public GameObject EnemiesGroup;
     [SerializeField] public GameObject GameOverGroup;
+    
     [Header("Text Fields")]
     //[SerializeField] public TextMeshProUGUI HPField;
     //[SerializeField] public TextMeshProUGUI CrystalHPField;
@@ -21,21 +22,21 @@ public class HUDManager : Singleton<HUDManager>
     [SerializeField] public TextMeshProUGUI TimeField;
     [SerializeField] public TextMeshProUGUI EnemiesField;
 
-    [Header("Sliding Bars")]
+    //[Header("Sliding Bars")]
     //[SerializeField] public GameObject HPBarFill;
     //[SerializeField] public GameObject[] HPBarEmpty;
     //[SerializeField] public GameObject CrystalHPBarFill;
     //[SerializeField] public GameObject[] CrystalHPBarEmpty;
-    [SerializeField] public GameObject CandyBarFill;
-    [SerializeField] public GameObject[] CandyBarEmpty;
-    [SerializeField] public GameObject WaveBar;
-    [SerializeField] public Color WaveBarSignalColour;
-    [SerializeField] public Color WaveBarDefaultColour;
-    [SerializeField] public GameObject TimeBar;
-    [SerializeField] public Color TimeBarSignalColour;
-    [SerializeField] public Color TimeBarDefaultColour;
-    [SerializeField] public GameObject EnemiesBarFill;
-    [SerializeField] public GameObject[] EnemiesBarEmpty;
+    //[SerializeField] public GameObject CandyBarFill;
+    //[SerializeField] public GameObject[] CandyBarEmpty;
+    //[SerializeField] public GameObject WaveBar;
+    //[SerializeField] public Color WaveBarSignalColour;
+    //[SerializeField] public Color WaveBarDefaultColour;
+    //[SerializeField] public GameObject TimeBar;
+    //[SerializeField] public Color TimeBarSignalColour;
+    //[SerializeField] public Color TimeBarDefaultColour;
+    //[SerializeField] public GameObject EnemiesBarFill;
+    //[SerializeField] public GameObject[] EnemiesBarEmpty;
     
     private void Start()
     {
@@ -48,14 +49,14 @@ public class HUDManager : Singleton<HUDManager>
         HideGameOver();
     }
 
-    private void Update()
+    /*private void Update()
     {
-        if (DataManager.Instance.PlayerDataObject.CurrentHP <= 0||DataManager.Instance.LevelDataObject.CrystalHP<=0)
+        if (DataManager.Instance.PlayerDataObject.CurrentHP <= 0 || DataManager.Instance.LevelDataObject.CrystalHP <= 0)
         {
             ShowGameOver();
             Time.timeScale = 0;
         }
-    }
+    }*/
 
     public void ShowHUD()
     {
@@ -117,15 +118,6 @@ public class HUDManager : Singleton<HUDManager>
         CandyGroup.SetActive(false);
     }
     
-    public void ShowGameOver()
-    {
-        GameOverGroup.SetActive(true);
-    }
-    public void HideGameOver()
-    {
-        GameOverGroup.SetActive(false);
-    }
-
     public void ShowWave()
     {
         WaveGroup.SetActive(true);
@@ -154,6 +146,16 @@ public class HUDManager : Singleton<HUDManager>
     public void HideEnemies()
     {
         EnemiesGroup.SetActive(false);
+    }
+
+    public void ShowGameOver()
+    {
+        GameOverGroup.SetActive(true);
+    }
+
+    public void HideGameOver()
+    {
+        GameOverGroup.SetActive(false);
     }
 
     /*public void UpdateHP()
@@ -187,12 +189,12 @@ public class HUDManager : Singleton<HUDManager>
         //set text
         CandyField.SetText(DataManager.Instance.PlayerDataObject.Candy.ToString());
 
-        //set bar
+        /*//set bar
         CandyBarFill.transform.localScale = new Vector3(Mathf.Clamp01((float)DataManager.Instance.PlayerDataObject.Candy / (float)DataManager.Instance.LevelDataObject.VisualMaxCandy), 1.0f, 1.0f);
         foreach (GameObject barEmpty in CandyBarEmpty)
         {
             barEmpty.transform.localScale = new Vector3(Mathf.Clamp01(((float)DataManager.Instance.LevelDataObject.VisualMaxCandy - (float)DataManager.Instance.PlayerDataObject.Candy) / (float)DataManager.Instance.LevelDataObject.VisualMaxCandy), 1.0f, 1.0f);
-        }
+        }*/
     }
 
     public void UpdateWave()
@@ -228,11 +230,11 @@ public class HUDManager : Singleton<HUDManager>
         //set text
         EnemiesField.SetText(DataManager.Instance.LevelDataObject.EnemiesRemaining.ToString());
 
-        //set bar
+        /*//set bar
         EnemiesBarFill.transform.localScale = new Vector3(Mathf.Clamp01((float)DataManager.Instance.LevelDataObject.EnemiesRemaining / (float)DataManager.Instance.LevelDataObject.VisualMaxEnemies), 1.0f, 1.0f);
         foreach (GameObject barEmpty in EnemiesBarEmpty)
         {
             barEmpty.transform.localScale = new Vector3(Mathf.Clamp01(((float)DataManager.Instance.LevelDataObject.VisualMaxEnemies - (float)DataManager.Instance.LevelDataObject.EnemiesRemaining) / (float)DataManager.Instance.LevelDataObject.VisualMaxEnemies), 1.0f, 1.0f);
-        }
+        }*/
     }
 }
