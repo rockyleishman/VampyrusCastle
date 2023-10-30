@@ -883,21 +883,22 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2013846758, guid: eb7d7631335dcfd4684fbd47cf0b9696, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 18.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2013846758, guid: eb7d7631335dcfd4684fbd47cf0b9696, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 84.8
+      value: 81.500015
       objectReference: {fileID: 0}
     - target: {fileID: 2013846759, guid: eb7d7631335dcfd4684fbd47cf0b9696, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+      objectReference: {fileID: 11400000, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
         type: 2}
     - target: {fileID: 2013846759, guid: eb7d7631335dcfd4684fbd47cf0b9696, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -1827459156271887737, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
     - target: {fileID: 633758212822885817, guid: eb7d7631335dcfd4684fbd47cf0b9696,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1012,13 +1013,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+      objectReference: {fileID: 11400000, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
         type: 2}
     - target: {fileID: 633758213183839513, guid: eb7d7631335dcfd4684fbd47cf0b9696,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -1827459156271887737, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
     - target: {fileID: 941359680644723172, guid: eb7d7631335dcfd4684fbd47cf0b9696,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1049,6 +1051,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1988548645323139499, guid: eb7d7631335dcfd4684fbd47cf0b9696,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
+    - target: {fileID: 1988548645323139499, guid: eb7d7631335dcfd4684fbd47cf0b9696,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1827459156271887737, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
+    - target: {fileID: 4028061598134589891, guid: eb7d7631335dcfd4684fbd47cf0b9696,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
+    - target: {fileID: 4028061598134589891, guid: eb7d7631335dcfd4684fbd47cf0b9696,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1827459156271887737, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
     - target: {fileID: 4480173270257239355, guid: eb7d7631335dcfd4684fbd47cf0b9696,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1063,13 +1089,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+      objectReference: {fileID: 11400000, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
         type: 2}
     - target: {fileID: 6000483631809344398, guid: eb7d7631335dcfd4684fbd47cf0b9696,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -1827459156271887737, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
     - target: {fileID: 6161033663915362772, guid: eb7d7631335dcfd4684fbd47cf0b9696,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1079,13 +1106,38 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+      objectReference: {fileID: 11400000, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
         type: 2}
     - target: {fileID: 6218015901646331616, guid: eb7d7631335dcfd4684fbd47cf0b9696,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -1827459156271887737, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
+    - target: {fileID: 6276333730122887971, guid: eb7d7631335dcfd4684fbd47cf0b9696,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
+    - target: {fileID: 6276333730122887971, guid: eb7d7631335dcfd4684fbd47cf0b9696,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1827459156271887737, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
+    - target: {fileID: 6885352657655083908, guid: eb7d7631335dcfd4684fbd47cf0b9696,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
+    - target: {fileID: 6885352657655083908, guid: eb7d7631335dcfd4684fbd47cf0b9696,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1827459156271887737, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
     - target: {fileID: 6947271379091179071, guid: eb7d7631335dcfd4684fbd47cf0b9696,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1101,6 +1153,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 342.41998
       objectReference: {fileID: 0}
+    - target: {fileID: 7945090008960338403, guid: eb7d7631335dcfd4684fbd47cf0b9696,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
+    - target: {fileID: 7945090008960338403, guid: eb7d7631335dcfd4684fbd47cf0b9696,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1827459156271887737, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
+    - target: {fileID: 8295830211321923474, guid: eb7d7631335dcfd4684fbd47cf0b9696,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
+    - target: {fileID: 8295830211321923474, guid: eb7d7631335dcfd4684fbd47cf0b9696,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1827459156271887737, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
     - target: {fileID: 8430649186651994909, guid: eb7d7631335dcfd4684fbd47cf0b9696,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1110,13 +1186,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+      objectReference: {fileID: 11400000, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
         type: 2}
     - target: {fileID: 9008155519322572710, guid: eb7d7631335dcfd4684fbd47cf0b9696,
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -1827459156271887737, guid: d4a5d815a0ffe1841bdde0ee9c9fa3e2,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb7d7631335dcfd4684fbd47cf0b9696, type: 3}
 --- !u!114 &6821946961360128262 stripped

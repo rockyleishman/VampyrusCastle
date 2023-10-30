@@ -33,7 +33,7 @@ public class TowerPanelController : MonoBehaviour
 
     void ChangeTowerColor(Image image, int amount)
     {
-        if(DataManager.Instance.PlayerDataObject.Candy>amount)
+        if(DataManager.Instance.PlayerDataObject.Candy>=amount)
         {
             image.color = new Color(1f, 1f, 1f);
         }
