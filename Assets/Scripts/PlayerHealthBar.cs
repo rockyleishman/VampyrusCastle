@@ -16,7 +16,7 @@ public class PlayerHealthBar : MonoBehaviour
     {
         _playerCanvas = this.GetComponent<Canvas>();
         _playerCanvas.worldCamera=FindObjectOfType<Camera>();
-        _playerCanvas.sortingLayerName = "Player";
+        _playerCanvas.sortingLayerName = "UI";
         _playerCanvas.sortingOrder = 3;
         _slider=_playerCanvas.transform.GetChild(0).GetComponent<Slider>();
         

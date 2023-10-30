@@ -686,7 +686,7 @@ MonoBehaviour:
   MeleeAttack: {fileID: 7435894840681361389, guid: e9bdd2a20fd5e144bb67f4de1c1723b4,
     type: 3}
   Damage: 4
-  Range: 1
+  Range: 1.5
   KnockbackDistance: 2
   KnockbackVelocity: 20
 --- !u!1 &4124264258981296676

@@ -44,39 +44,9 @@ TagManager:
   - name: Path
     uniqueID: 2425651459
     locked: 0
-  - name: Bushes
-    uniqueID: 4189426099
-    locked: 0
-  - name: Grass
-    uniqueID: 1073888815
-    locked: 0
-  - name: Rock
-    uniqueID: 2284466223
-    locked: 0
-  - name: Wooden
-    uniqueID: 847250375
-    locked: 0
-  - name: Trees
-    uniqueID: 4272317773
-    locked: 0
-  - name: Direction
-    uniqueID: 2161471865
-    locked: 0
-  - name: Graves
-    uniqueID: 1723904587
-    locked: 0
-  - name: Pumkin
-    uniqueID: 2414284903
-    locked: 0
-  - name: Flower
-    uniqueID: 3960825639
-    locked: 0
-  - name: Gate
-    uniqueID: 478573917
-    locked: 0
-  - name: Player
-    uniqueID: 1205882075
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1592195671
     locked: 0
