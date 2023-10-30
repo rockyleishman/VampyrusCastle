@@ -13,7 +13,7 @@ public class SwordAttackSpawner : AttackSpawner
     public override void TriggerAttack(Vector3 attackOrigin, Vector3 attackDirection, DestructableObject attackTarget)
     {
         //spawn attack
-        PlayerMeleeAttack meleeAttack = (PlayerMeleeAttack)PoolManager.Instance.Spawn(MeleeAttack.name, attackOrigin + attackDirection * Range, Quaternion.LookRotation(Vector3.forward, -attackDirection));
+        PlayerMeleeAttack meleeAttack = (PlayerMeleeAttack)PoolManager.Instance.Spawn(MeleeAttack.name, attackOrigin + attackDirection * Range + new Vector3(0.0f, 0.5f, 0.0f), Quaternion.LookRotation(Vector3.forward, -attackDirection));
         meleeAttack.Init(Damage, KnockbackDistance, KnockbackVelocity);
     }
 }
