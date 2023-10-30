@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -6,12 +7,12 @@ public class HUDManager : Singleton<HUDManager>
 {
     [Header("Groups")]
     //[SerializeField] public GameObject HPGroup;
-    [SerializeField] public GameObject CrystalHPGroup;
+    //[SerializeField] public GameObject CrystalHPGroup;
     [SerializeField] public GameObject CandyGroup;
     [SerializeField] public GameObject WaveGroup;
     [SerializeField] public GameObject TimeGroup;
     [SerializeField] public GameObject EnemiesGroup;
-
+    [SerializeField] public GameObject GameOverGroup;
     [Header("Text Fields")]
     //[SerializeField] public TextMeshProUGUI HPField;
     //[SerializeField] public TextMeshProUGUI CrystalHPField;
@@ -35,7 +36,7 @@ public class HUDManager : Singleton<HUDManager>
     [SerializeField] public Color TimeBarDefaultColour;
     [SerializeField] public GameObject EnemiesBarFill;
     [SerializeField] public GameObject[] EnemiesBarEmpty;
-
+    
     private void Start()
     {
         //ShowHP();
@@ -44,6 +45,16 @@ public class HUDManager : Singleton<HUDManager>
         HideWave();
         HideTime();
         HideEnemies();
+        HideGameOver();
+    }
+
+    private void Update()
+    {
+        if (DataManager.Instance.PlayerDataObject.CurrentHP <= 0||DataManager.Instance.LevelDataObject.CrystalHP<=0)
+        {
+            ShowGameOver();
+            Time.timeScale = 0;
+        }
     }
 
     public void ShowHUD()
@@ -104,6 +115,15 @@ public class HUDManager : Singleton<HUDManager>
     public void HideCandy()
     {
         CandyGroup.SetActive(false);
+    }
+    
+    public void ShowGameOver()
+    {
+        GameOverGroup.SetActive(true);
+    }
+    public void HideGameOver()
+    {
+        GameOverGroup.SetActive(false);
     }
 
     public void ShowWave()

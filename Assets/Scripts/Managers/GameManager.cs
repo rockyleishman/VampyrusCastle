@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     private void Awake()
@@ -26,5 +26,11 @@ public class GameManager : Singleton<GameManager>
     public void RemoveCandy(int candy)
     {
         DataManager.Instance.PlayerDataObject.Candy -= candy;
+    }
+    
+    private void Update()
+    {
+        
+        //SceneManager.LoadScene(0);
     }
 }
